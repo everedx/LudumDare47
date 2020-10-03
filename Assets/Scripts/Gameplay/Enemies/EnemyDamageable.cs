@@ -65,7 +65,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 	private void OnTriggerEnter2D(Collider2D coll)
 	{
 		var bullet = coll.gameObject.GetComponent<IBullet>();
-        if (bullet != null && bullet.GetOwner().tag.Equals("Player"))
+        if (bullet != null && bullet.GetOwnerTag().Equals("Player"))
         {
             Damage(bullet.HasHitSomething());
         }

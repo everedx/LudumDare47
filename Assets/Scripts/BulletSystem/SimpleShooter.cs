@@ -19,7 +19,7 @@ public class SimpleShooter : IShooter
 		if (justPressed)
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
-			go.GetComponent<StraightBullet>().SetOwner(spaceShip);
+			go.GetComponent<StraightBullet>().SetOwnerTag(spaceShip);
 			go.transform.rotation = spaceShip.transform.rotation;
 			Object.Destroy(go, 2f);
 		}

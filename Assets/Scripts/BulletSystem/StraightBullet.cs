@@ -8,7 +8,7 @@ public class StraightBullet : MonoBehaviour, IBullet
 	[SerializeField] float damage = 1.1f;
 	[SerializeField] float speed = 5f;
 
-	private GameObject owner;
+	private string ownerTag;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -28,14 +28,15 @@ public class StraightBullet : MonoBehaviour, IBullet
 		return damage; // Damage this bullet does
 	}
 
-	public void SetOwner(GameObject go)
+	public void SetOwnerTag(GameObject go)
 	{
-		owner = go;
+		// Keep owner tag instead of owner in order to be able to be hit by destroyed gameobjects
+		ownerTag = go.tag;
 	}
 
-	public GameObject GetOwner()
+	public string GetOwnerTag()
 	{
-		return owner;
+		return ownerTag;
 	}
 
 
