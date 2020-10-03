@@ -5,12 +5,8 @@ using UnityEngine;
 
 public class StraightBullet : MonoBehaviour, IBullet
 {
-	public float HasHitSomething()
-	{
-		Destroy(gameObject);
-
-		return 1.1f; // Damage this bullet does
-	}
+	[SerializeField] float damage = 1.1f;
+	[SerializeField] float speed = 5f;
 
 	// Start is called before the first frame update
 	void Start()
@@ -20,6 +16,14 @@ public class StraightBullet : MonoBehaviour, IBullet
 
 	void FixedUpdate()
 	{
-		transform.Translate(0, 50 * Time.fixedDeltaTime, 0, Space.Self);
+		transform.Translate(0, speed * Time.fixedDeltaTime, 0, Space.Self);
 	}
+
+	public float HasHitSomething()
+	{
+		Destroy(gameObject);
+
+		return damage; // Damage this bullet does
+	}
+
 }
