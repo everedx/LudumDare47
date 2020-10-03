@@ -8,14 +8,11 @@ public class SimpleShooter : IShooter
 	private GameObject Prefab;
 	private GameObject parentObject;
 
-
 	public SimpleShooter(GameObject parentObject)
 	{
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
 		this.parentObject = parentObject;
 	}
-
-
 
 	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip)
 	{
@@ -27,7 +24,4 @@ public class SimpleShooter : IShooter
 			Object.Destroy(go, 2f);
 		}
 	}
-
-
-		
 }
