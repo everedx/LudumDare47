@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour, IDamageable
 {
@@ -12,18 +13,24 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float flickerDamageAmountEnd;
     [SerializeField] private float glitchDamageAmountEnd;
 
+	public GameObject HealthRing;
+
 
     private float currentHealth;
     private float invulnerabilityTimer;
     private Material playerMaterial;
+	private Image healthRing;
+	private float currentDisplayedHealth; // Not the actual health, only used to display smoothed health changes
 
 
-    // Start is called before the first frame update
-    void Start()
+	// Start is called before the first frame update
+	void Start()
     {
         currentHealth = initialHealth;
         playerMaterial = GetComponent<SpriteRenderer>().material;
         invulnerabilityTimer = 50000;
+
+		healthRing = HealthRing.GetComponent<Image>();
     }
 
     private void Update()
@@ -42,6 +49,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         playerMaterial.SetFloat("_GlitchAmount", Mathf.Lerp(glitchDamageAmount, glitchDamageAmountEnd, invulnerabilityTimer / invulTimeAfterHit));
         playerMaterial.SetFloat("_FlickerFreq", Mathf.Lerp(flickerDamageAmount, flickerDamageAmountEnd, invulnerabilityTimer / invulTimeAfterHit));
+
+		healthRing.fillAmount = Mathf.Lerp(healthRing.fillAmount, currentHealth / initialHealth, 0.1f);
     }
 
 
