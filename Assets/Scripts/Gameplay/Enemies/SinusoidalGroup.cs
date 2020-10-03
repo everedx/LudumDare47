@@ -17,7 +17,10 @@ public class SinusoidalGroup : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        numberOfTotalShips = Random.Range(minNumberOfShips, maxNumberOfShips + 1);
+		var playerParentTransform = GameObject.FindGameObjectWithTag("Player").transform.parent;
+		transform.parent = playerParentTransform;
+
+		numberOfTotalShips = Random.Range(minNumberOfShips, maxNumberOfShips + 1);
         numberOfGeneratedShips = 0;
         verticalOffset = Random.Range(verticalOffset,1);
     }
@@ -29,11 +32,10 @@ public class SinusoidalGroup : MonoBehaviour
 
         if (timer > timeBetweenShipGeneration && numberOfGeneratedShips < numberOfTotalShips)
         {
-            Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
             Vector3 eulerRotation = Camera.main.transform.rotation.eulerAngles;
             eulerRotation = new Vector3(eulerRotation.x, eulerRotation.y, eulerRotation.z + 90);
 
-            GameObject gameObject = Instantiate(ship, spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up*verticalOffset, Quaternion.Euler(eulerRotation));
+            GameObject gameObject = Instantiate(ship, transform.position, Quaternion.Euler(eulerRotation));
             ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
             if (ps != null)
             {
