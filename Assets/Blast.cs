@@ -29,7 +29,7 @@ public class Blast : MonoBehaviour, IBullet
 		_raycastDistance = 100f;
 	}
 
-	private void LateUpdate()
+	private void Update()
 	{
 		if (Camera.main.WorldToScreenPoint(_head.transform.position).x < Camera.main.pixelWidth + headScreenOverlap)
 		{
