@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyShipSin : EnemyDamageable
 {
-    [SerializeField] float damageOnTouch = 1;
-    
+
     [SerializeField] float frequency = 3.0f;
     [SerializeField] float magnitudeWaveMovement = 1f;
     private Vector3 waveDirection = Vector3.up;

@@ -6,23 +6,21 @@ public class SimpleShooter : IShooter
 {
 	private const string BulletPrefabPath = "Prefabs/Bullets/SimpleBullet";
 	private GameObject Prefab;
+	private GameObject parentObject;
 
-	public SimpleShooter()
+	public SimpleShooter(GameObject parentObject)
 	{
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
+		this.parentObject = parentObject;
 	}
 
-	// Update is called once per frame
-	void Update()
-	{
-		
-	}
+
 
 	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip)
 	{
 		if (justPressed)
 		{
-			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion());
+			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
 			go.transform.rotation = spaceShip.transform.rotation;
 			Object.Destroy(go, 2f);
 		}
