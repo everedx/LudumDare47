@@ -37,8 +37,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
     public virtual void Damage(float damage)
     {
-
-        if (currentHealth > 0)
+		if (currentHealth > 0)
         {
             currentHealth = currentHealth - damage;
             currentHealth = Mathf.Clamp(currentHealth, 0, initialHealth);
@@ -59,10 +58,16 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
     }
 
+	private void OnTriggerEnter2D(Collider2D coll)
+	{
+		var bullet = coll.gameObject.GetComponent<IBullet>();
+		if(bullet != null)
+		{
+			Damage(bullet.HasHitSomething());
+		}
+	}
 
-
-
-    private void ReleaseParticlesFromHit()
+	private void ReleaseParticlesFromHit()
     {
         if (psHit != null)
             psHit.Play();
