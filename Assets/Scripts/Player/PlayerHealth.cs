@@ -50,11 +50,19 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         playerMaterial.SetFloat("_GlitchAmount", Mathf.Lerp(glitchDamageAmount, glitchDamageAmountEnd, invulnerabilityTimer / invulTimeAfterHit));
         playerMaterial.SetFloat("_FlickerFreq", Mathf.Lerp(flickerDamageAmount, flickerDamageAmountEnd, invulnerabilityTimer / invulTimeAfterHit));
 
-		healthRing.fillAmount = Mathf.Lerp(healthRing.fillAmount, currentHealth / initialHealth, 0.1f);
+		//healthRing.fillAmount = Mathf.Lerp(healthRing.fillAmount, currentHealth / initialHealth, 0.1f);
     }
 
 
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        var bullet = coll.gameObject.GetComponent<IBullet>();
+        if (bullet != null && !bullet.GetOwner().tag.Equals("Player"))
+        {
+            Damage(bullet.HasHitSomething());
+        }
 
+    }
     public void Damage(float amount)
     {
         invulnerabilityTimer = 0;

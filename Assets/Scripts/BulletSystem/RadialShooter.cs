@@ -23,6 +23,7 @@ public class RadialShooter : IShooter
 		for (float i = 0; i < 360; i += eulerDif)
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, Quaternion.Euler(0,0,i), parentOfBullet.transform);
+			go.GetComponent<StraightBullet>().SetOwner(spaceShip);
 			Object.Destroy(go, 7f);
 		}
 		

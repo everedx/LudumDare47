@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using UnityEngine;
 
-public class BurstShip : MonoBehaviour
+public class BurstShip : EnemyDamageable
 {
    
     [SerializeField] float secondsToShoot = 2;
@@ -28,6 +28,7 @@ public class BurstShip : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        base.Start();
         playerParentTransform = GameObject.FindGameObjectWithTag("Player").transform.parent;
         transform.parent = playerParentTransform;
         status = Statutes.GettingClose;
@@ -39,6 +40,7 @@ public class BurstShip : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        base.Update();
         timer += Time.deltaTime;
         switch (status)
         {

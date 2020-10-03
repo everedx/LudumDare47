@@ -8,6 +8,7 @@ public class SimpleShooter : IShooter
 	private GameObject Prefab;
 	private GameObject parentObject;
 
+
 	public SimpleShooter(GameObject parentObject)
 	{
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
@@ -21,8 +22,12 @@ public class SimpleShooter : IShooter
 		if (justPressed)
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
+			go.GetComponent<StraightBullet>().SetOwner(spaceShip);
 			go.transform.rotation = spaceShip.transform.rotation;
 			Object.Destroy(go, 2f);
 		}
 	}
+
+
+		
 }
