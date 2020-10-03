@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShipStatic : MonoBehaviour
+public class EnemyShipStatic : EnemyDamageable
 {
     [SerializeField] float bulletsPerSecond = 2;
 

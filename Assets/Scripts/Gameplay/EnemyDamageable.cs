@@ -35,7 +35,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         }
     }
 
-    public virtual void Damage(float damage, Vector3 originOfDamage, GameObject originObject)
+    public virtual void Damage(float damage)
     {
 
         if (currentHealth > 0)
