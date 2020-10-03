@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class LineFollower : MonoBehaviour
 {
-	public PathCreator pathCreator;
-	public float speed = 7;
+	[SerializeField] PathCreator pathCreator;
+	[SerializeField] float speed = 7;
 	float distanceTravelled;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-		
-	}
+
 
 	// Update is called once per frame
 	void Update()

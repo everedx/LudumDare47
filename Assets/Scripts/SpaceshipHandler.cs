@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpaceshipHandler : MonoBehaviour
 {
-	public float MovementSpeed = 5;
+	[SerializeField] float MovementSpeed = 5;
 	// Start is called before the first frame update
 	void Start()
 	{
