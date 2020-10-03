@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class CameraFollower : MonoBehaviour
 {
-	public float YOffset;
-	public float XOffset;
-	public GameObject ToFollow;
+	[SerializeField] float YOffset;
+
+	[Range(0.0f, 8.0f)]
+	[SerializeField] float XOffset;
+
+	[SerializeField] GameObject ToFollow;
 	Transform _transformToFollow;
 
 	// Start is called before the first frame update
