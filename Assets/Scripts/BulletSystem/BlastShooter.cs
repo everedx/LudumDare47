@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleShooter : IShooter
+public class BlastShooter : IShooter
 {
-	private const string BulletPrefabPath = "Prefabs/Bullets/SimpleBullet";
+	[SerializeField] float yOffset = 2.65f;
+
+	private const string BulletPrefabPath = "Prefabs/Bullets/Blast";
 	private GameObject Prefab;
 	private GameObject parentObject;
 
-	public SimpleShooter(GameObject parentObject)
+	public BlastShooter(GameObject parentObject)
 	{
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
 		this.parentObject = parentObject;
@@ -21,6 +23,7 @@ public class SimpleShooter : IShooter
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
 			go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
 			go.transform.rotation = spaceShip.transform.rotation;
+			go.transform.Translate(0, yOffset, 0, Space.Self);
 			Object.Destroy(go, 2f);
 		}
 	}

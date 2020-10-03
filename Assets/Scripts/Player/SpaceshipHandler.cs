@@ -19,7 +19,9 @@ public class SpaceshipHandler : MonoBehaviour
 	void Start()
 	{
 		//_shooter = new SimpleShooter(transform.parent.gameObject);
-		_shooter = new ShotgunShooter(8, transform.parent.gameObject);
+		//_shooter = new ShotgunShooter(8, transform.parent.gameObject);
+		_shooter = new BlastShooter(gameObject); // Use the ship instead of the parent in this case because the blast should follow the ship
+
 		_mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
 		_halfSpriteRect.width /= 2;

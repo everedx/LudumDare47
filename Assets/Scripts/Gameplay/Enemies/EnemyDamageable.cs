@@ -74,9 +74,9 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag.Equals("Player"))
+		if (collision.gameObject.tag.Equals("Player"))
         {
-            collision.gameObject.GetComponent<PlayerHealth>().Damage(damageOnCollision);
+			collision.gameObject.GetComponent<PlayerHealth>().Damage(damageOnCollision);
         }
     }
 
