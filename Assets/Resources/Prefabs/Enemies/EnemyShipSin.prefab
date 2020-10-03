@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 2959310872201168294}
   - component: {fileID: 2959310872201168292}
   - component: {fileID: 2959310872201168293}
-  m_Layer: 0
-  m_Name: EnemyShip
+  - component: {fileID: -1078309385720158632}
+  m_Layer: 8
+  m_Name: EnemyShipSin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2959310872201168297}
-  m_LocalRotation: {x: 0, y: 0, z: 0.45802903, w: 0.88893723}
-  m_LocalPosition: {x: 29.3, y: 98.1, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2959310872925571456}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 54.52}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2959310872201168294
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -142,9 +143,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderObject: {fileID: -6465566751694194690, guid: 4a5745436f9a77b42a3d41bcdf0c679a, type: 3}
-  initialHealth: 3
+  initialHealth: 2
+  damageOnCollision: 1
   psHit: {fileID: 2959310872925571458}
-  bulletsPerSecond: 2
+  damageOnTouch: 1
+  frequency: 4
+  magnitudeWaveMovement: 15
+--- !u!50 &-1078309385720158632
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2959310872201168297}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &2959310872925571461
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,7 +181,7 @@ GameObject:
   - component: {fileID: 2959310872925571456}
   - component: {fileID: 2959310872925571458}
   - component: {fileID: 2959310872925571459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DamagedPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -186,7 +211,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2959310872925571461}
   serializedVersion: 6
   lengthInSec: 5
-  simulationSpeed: 1
+  simulationSpeed: 3
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -250,7 +275,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 2
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -313,7 +338,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -428,9 +453,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
-      minScalar: 1
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -481,7 +506,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -534,7 +559,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -747,7 +772,7 @@ ParticleSystem:
     randomizeRotationDirection: 0
     maxNumParticles: 1000
     size3D: 0
-    rotation3D: 0
+    rotation3D: 1
     gravityModifier:
       serializedVersion: 2
       minMaxState: 0
@@ -804,11 +829,11 @@ ParticleSystem:
   ShapeModule:
     serializedVersion: 6
     enabled: 1
-    type: 4
+    type: 10
     angle: 25
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
-    radiusThickness: 1
+    radiusThickness: 0.3
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
@@ -891,7 +916,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 1
+      value: 0.46
       mode: 0
       spread: 0
       speed:
@@ -1120,7 +1145,7 @@ ParticleSystem:
       countCurve:
         serializedVersion: 2
         minMaxState: 0
-        scalar: 30
+        scalar: 3
         minScalar: 30
         maxCurve:
           serializedVersion: 2
@@ -1564,8 +1589,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
   UVModule:
     serializedVersion: 2
-    enabled: 0
-    mode: 0
+    enabled: 1
+    mode: 1
     timeMode: 0
     fps: 30
     frameOverTime:
@@ -1683,7 +1708,10 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 0}
+    - sprite: {fileID: 5986030973748356752, guid: c6fc022571e00294fa8ddf794a85ea1f, type: 3}
+    - sprite: {fileID: -5600206312213581617, guid: c6fc022571e00294fa8ddf794a85ea1f, type: 3}
+    - sprite: {fileID: 3815954189206336483, guid: c6fc022571e00294fa8ddf794a85ea1f, type: 3}
+    - sprite: {fileID: -3690502768834906923, guid: c6fc022571e00294fa8ddf794a85ea1f, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -4969,7 +4997,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4989,7 +5017,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

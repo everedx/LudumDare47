@@ -18,4 +18,11 @@ public class LineFollower : MonoBehaviour
 		transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
 		transform.up = -pathCreator.path.GetDirectionAtDistance(distanceTravelled);
 	}
+
+
+	public Vector2 GetUpVector()
+	{
+		return transform.up;
+	}
+
 }

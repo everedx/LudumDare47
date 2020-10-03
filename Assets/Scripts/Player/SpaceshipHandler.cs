@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.Rendering.Universal.Internal;
 
 public class SpaceshipHandler : MonoBehaviour
 {
@@ -19,7 +21,9 @@ public class SpaceshipHandler : MonoBehaviour
 
 	void FixedUpdate()
 	{
+
 		transform.Translate(movementX * MovementSpeed * Time.fixedDeltaTime, movementY * MovementSpeed * Time.fixedDeltaTime, 0, Space.Self);
+
 	}
 
 	void Update()
