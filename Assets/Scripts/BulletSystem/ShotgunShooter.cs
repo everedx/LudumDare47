@@ -24,6 +24,7 @@ public class ShotgunShooter : IShooter
 			for (float i = -50; i <= 50; i += eulerDif)
 			{
 				var go = Object.Instantiate(Prefab, spaceShip.transform.position, spaceShip.transform.rotation, parentObject.transform);
+				go.GetComponent<StraightBullet>().SetOwner(spaceShip);
 				go.transform.Rotate(0, 0, i);
 				Object.Destroy(go, 2f);
 			}

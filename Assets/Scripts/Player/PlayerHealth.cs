@@ -71,7 +71,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
 		if (currentShieldHealth > 0)
 		{
-			Debug.Log("We have shield!");
 			currentShieldHealth -= amount;
 			if (currentShieldHealth <= 0) Destroy(_shield);
 			return; // If we had shield when this damage occurred, don't ever affect health
