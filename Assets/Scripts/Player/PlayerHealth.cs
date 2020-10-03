@@ -21,6 +21,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     private Material playerMaterial;
 	private Image healthRing;
 	private float currentDisplayedHealth; // Not the actual health, only used to display smoothed health changes
+	private float currentShieldHealth;
+	private GameObject _shield;
 
 
 	// Start is called before the first frame update
@@ -57,9 +59,24 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
     public void Damage(float amount)
     {
-        invulnerabilityTimer = 0;
+		invulnerabilityTimer = 0;
+
+		if (currentShieldHealth > 0)
+		{
+			Debug.Log("We have shield!");
+			currentShieldHealth -= amount;
+			if (currentShieldHealth <= 0) Destroy(_shield);
+			return; // If we had shield when this damage occurred, don't ever affect health
+		}
+
         currentHealth= Mathf.Clamp(currentHealth - amount, 0, initialHealth);
         if (currentHealth == 0)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+	public void AddShield(GameObject shieldPrefab, ShieldPowerup powerup)
+	{
+		_shield = Instantiate(shieldPrefab, transform);
+		currentShieldHealth = powerup.shieldHealth;
+	}
 }
