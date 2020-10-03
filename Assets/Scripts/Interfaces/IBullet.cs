@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IBullet
 {
 	float HasHitSomething();
+	GameObject GetOwner();
 }
