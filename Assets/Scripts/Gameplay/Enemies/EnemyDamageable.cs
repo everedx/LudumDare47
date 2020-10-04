@@ -49,7 +49,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             ReleaseParticlesFromHit();
 
             //shiny
-            mat.SetFloat("_BlendMagnitude", 0.85f);
+            mat.SetFloat("_BlendMagnitude", 0.95f);
 
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
