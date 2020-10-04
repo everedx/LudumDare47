@@ -10,17 +10,17 @@ public class BurstGroup : MonoBehaviour
     [SerializeField] float timeBetweenShipGeneration = 0.2f;
 
     private Transform parentTransform;
-    float verticalOffset = 10;
     int numberOfTotalShips;
     int numberOfGeneratedShips;
     float timer;
+    List<float> offsets;
     // Start is called before the first frame update
     void Start()
     {
         numberOfTotalShips = Random.Range(minNumberOfShips, maxNumberOfShips + 1);
         numberOfGeneratedShips = 0;
-        verticalOffset = Random.Range(-verticalOffset, verticalOffset+1);
         parentTransform = GameObject.FindGameObjectWithTag("Player").transform.parent;
+        offsets = GetPositionsOffsetsToSpawnShips(numberOfTotalShips);
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class BurstGroup : MonoBehaviour
             Vector3 eulerRotation = Camera.main.transform.rotation.eulerAngles;
             eulerRotation = new Vector3(eulerRotation.x, eulerRotation.y, eulerRotation.z + 90);
 
-            GameObject gameObject = Instantiate(ship, spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up * verticalOffset, Quaternion.Euler(eulerRotation),parentTransform);
+            GameObject gameObject = Instantiate(ship, spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up * offsets[numberOfGeneratedShips], Quaternion.Euler(eulerRotation),parentTransform);
             ParticleSystem ps = gameObject.GetComponentInChildren<ParticleSystem>();
             if (ps != null)
             {
@@ -49,5 +49,17 @@ public class BurstGroup : MonoBehaviour
         }
         else if (numberOfGeneratedShips >= numberOfTotalShips)
             Destroy(gameObject);
+    }
+
+    private List<float> GetPositionsOffsetsToSpawnShips(int numberOfShips)
+    {
+        List<float> listOfOffsets = new List<float>();
+        float verticalOffset = 25;
+        float distanceBetweenShips = (verticalOffset*2) / (numberOfShips + 1);
+        for (float i = -verticalOffset+distanceBetweenShips; i < verticalOffset; i += distanceBetweenShips)
+        {
+            listOfOffsets.Add(i);
+        }
+        return listOfOffsets;
     }
 }

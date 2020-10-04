@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4119333600918480377}
   - component: {fileID: 5134453540045841773}
   - component: {fileID: 5986239092072376996}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BurstShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
