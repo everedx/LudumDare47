@@ -22,7 +22,7 @@ public class MachineGunShooter : IShooter
 	{
 		timer += deltaTime;
 
-		if (isPressed && timer >= candence && spaceShip.tag.Equals("Player"))
+		if (isPressed && timer >= candence)
 		{
 			GenerateBullets(level,spaceShip);
 			timer = 0;
