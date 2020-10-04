@@ -2,29 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlastShooter : IShooter
+public class MachineGunShooter : IShooter
 {
-	[SerializeField] float yOffset = 2.65f;
-
-	private const string BulletPrefabPath = "Prefabs/Bullets/Blast";
+	private const string BulletPrefabPath = "Prefabs/Bullets/MachineGunBullet";
 	private GameObject Prefab;
 	private GameObject parentObject;
+	private float timer;
+	private float candence = 0.1f;
 
-	public BlastShooter(GameObject parentObject)
+
+	public MachineGunShooter(GameObject parentObject)
 	{
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
 		this.parentObject = parentObject;
+		timer = 2000;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip,float deltaTime)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime)
 	{
-		if (justPressed)
+		timer += deltaTime;
+
+		if (isPressed && timer >= candence)
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
 			go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
 			go.transform.rotation = spaceShip.transform.rotation;
-			go.transform.Translate(0, yOffset, 0, Space.Self);
 			Object.Destroy(go, 2f);
+			timer = 0;
 		}
+			
+		
 	}
 }

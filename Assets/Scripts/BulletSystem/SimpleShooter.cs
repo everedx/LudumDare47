@@ -14,7 +14,7 @@ public class SimpleShooter : IShooter
 		this.parentObject = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime)
 	{
 		if (justPressed)
 		{

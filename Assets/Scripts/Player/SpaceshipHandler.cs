@@ -9,18 +9,33 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] float MovementSpeed = 5;
 
 	// TODO: Convert this to an array/list of the currently held shooters
-	private IShooter _shooter;
+	private List<IShooter> _shooters;
+	private IShooter _activeShooter;
 	private Camera _mainCamera;
 	private Rect _halfSpriteRect;
+	private int gunLevel;
+	private int damageLevel;
+	private int speedLevel;
+	private int laserLevel;
+
 
 	private int movementX;
 	private int movementY;
 
 	void Start()
 	{
-		//_shooter = new SimpleShooter(transform.parent.gameObject);
-		//_shooter = new ShotgunShooter(8, transform.parent.gameObject);
-		_shooter = new BlastShooter(gameObject); // Use the ship instead of the parent in this case because the blast should follow the ship
+
+		gunLevel = 1;
+		damageLevel = 1;
+		speedLevel = 1;
+		laserLevel = 1;
+
+		_shooters = new List<IShooter>();
+		_shooters.Add(new SimpleShooter(transform.parent.gameObject));
+		_shooters.Add(new ShotgunShooter(8, transform.parent.gameObject));
+		_shooters.Add(new BlastShooter(gameObject));// Use the ship instead of the parent in this case because the blast should follow the ship
+		_shooters.Add(new MachineGunShooter(transform.parent.gameObject));
+		_activeShooter = _shooters[3];
 
 		_mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
@@ -59,6 +74,39 @@ public class SpaceshipHandler : MonoBehaviour
 		if (screenPos.y - _halfSpriteRect.height < 0 && movementX > 0) movementX = 0;
 		else if (screenPos.y + _halfSpriteRect.height > _mainCamera.pixelHeight && movementX < 0) movementX = 0;
 
-		_shooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject);
+		
+		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject,Time.deltaTime);
 	}
+
+
+	public void AddShotgunPowerUp()
+	{
+		_activeShooter = GetShooterOfType<ShotgunShooter>();
+		gunLevel = Mathf.Clamp(gunLevel+1,1,3);
+	}
+	public void AddMoveSpeedPowerUp()
+	{
+		speedLevel = Mathf.Clamp(speedLevel + 1, 1, 3);
+	}
+	public void AddMachineGunPowerUp()
+	{ }
+	public void AddDamagePowerUp()
+	{
+		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);
+	}
+	public void AddLazerPowerUp()
+	{
+		laserLevel = Mathf.Clamp(laserLevel + 1, 1, 3);
+	}
+
+	private T GetShooterOfType<T>()
+	{
+		foreach (IShooter shooter in _shooters)
+		{
+			if (shooter is T)
+				return (T)shooter;
+		}
+		return default(T);
+	}
+
 }
