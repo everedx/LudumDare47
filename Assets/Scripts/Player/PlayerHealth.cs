@@ -76,6 +76,9 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 			return; // If we had shield when this damage occurred, don't ever affect health
 		}
 
+        GetComponent<SpaceshipHandler>().LoseOneLevel();
+
+
         currentHealth= Mathf.Clamp(currentHealth - amount, 0, initialHealth);
         if (currentHealth == 0)
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -57,6 +57,10 @@ public class SpaceshipHandler : MonoBehaviour
 		var left = KeyCode.LeftArrow;
 		var right = KeyCode.RightArrow;
 		var shoot = KeyCode.Space;
+		var escape = KeyCode.Escape;
+
+		if (Input.GetKeyDown(escape) && Time.timeScale == 1) Time.timeScale = 0;
+		else if (Input.GetKeyDown(escape) && Time.timeScale == 0) Time.timeScale = 1;
 
 		if (Input.GetKey(up)) movementX = -1;
 		else if (Input.GetKey(down)) movementX = 1;
@@ -111,5 +115,15 @@ public class SpaceshipHandler : MonoBehaviour
 		}
 		return default(T);
 	}
+
+
+	public void LoseOneLevel()
+	{
+		gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
+		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
+		speedLevel = Mathf.Clamp(speedLevel - 1, 1, 3);
+		laserLevel = Mathf.Clamp(laserLevel - 1, 1, 3);
+	}
+
 
 }
