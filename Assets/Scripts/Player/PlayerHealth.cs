@@ -12,6 +12,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float glitchDamageAmount;
     [SerializeField] private float flickerDamageAmountEnd;
     [SerializeField] private float glitchDamageAmountEnd;
+    [SerializeField] private float maxShieldHealth = 3f;
 
 	public GameObject HealthRing;
 
@@ -88,6 +89,6 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	{
         Destroy(_shield);
         _shield = Instantiate(shieldPrefab, transform);
-		currentShieldHealth = powerup.shieldHealth;
+		currentShieldHealth = Mathf.Clamp(currentShieldHealth+ powerup.shieldHealth,0,maxShieldHealth);
 	}
 }
