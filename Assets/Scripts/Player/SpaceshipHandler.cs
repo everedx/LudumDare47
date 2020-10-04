@@ -35,7 +35,7 @@ public class SpaceshipHandler : MonoBehaviour
 		_shooters.Add(new ShotgunShooter(8, transform.parent.gameObject));
 		_shooters.Add(new BlastShooter(gameObject));// Use the ship instead of the parent in this case because the blast should follow the ship
 		_shooters.Add(new MachineGunShooter(transform.parent.gameObject));
-		_activeShooter = _shooters[3];
+		_activeShooter = _shooters[0];
 
 		_mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
@@ -75,7 +75,7 @@ public class SpaceshipHandler : MonoBehaviour
 		else if (screenPos.y + _halfSpriteRect.height > _mainCamera.pixelHeight && movementX < 0) movementX = 0;
 
 		
-		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject,Time.deltaTime);
+		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject,Time.deltaTime,gunLevel);
 	}
 
 
@@ -89,7 +89,10 @@ public class SpaceshipHandler : MonoBehaviour
 		speedLevel = Mathf.Clamp(speedLevel + 1, 1, 3);
 	}
 	public void AddMachineGunPowerUp()
-	{ }
+	{
+		_activeShooter = GetShooterOfType<MachineGunShooter>();
+		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+	}
 	public void AddDamagePowerUp()
 	{
 		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);

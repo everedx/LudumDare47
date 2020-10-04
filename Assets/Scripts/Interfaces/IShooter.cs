@@ -5,5 +5,5 @@ using UnityEngine;
 
 public interface IShooter
 {
-	void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime);
+	void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level);
 }

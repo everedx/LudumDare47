@@ -16,9 +16,9 @@ public class BlastShooter : IShooter
 		this.parentObject = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip,float deltaTime)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip,float deltaTime, int level)
 	{
-		if (justPressed)
+		if (justPressed && spaceShip.tag.Equals("Player"))
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, new Quaternion(), parentObject.transform);
 			go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
