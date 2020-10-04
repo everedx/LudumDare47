@@ -8,6 +8,8 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     [SerializeField] float initialHealth = 3;
     [SerializeField] float damageOnCollision = 1;
     [SerializeField] ParticleSystem psHit;
+    [SerializeField] GameObject lootObject;
+
     protected float currentHealth;
     protected Rigidbody2D rigBody;
     protected BoxCollider2D boxCollider2D;
@@ -48,12 +50,19 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
             ReleaseParticlesFromHit();
 
+          
+
             //shiny
             mat.SetFloat("_BlendMagnitude", 0.95f);
 
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
+                //
+                if (lootObject != null)
+                {
+                    Instantiate(lootObject, transform.position, Quaternion.identity);
+                }
                 Destroy(gameObject);
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }

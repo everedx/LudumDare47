@@ -17,6 +17,7 @@ public class SpaceshipHandler : MonoBehaviour
 	private int damageLevel;
 	private int speedLevel;
 	private int laserLevel;
+	private Animator anim;
 
 
 	private int movementX;
@@ -24,6 +25,7 @@ public class SpaceshipHandler : MonoBehaviour
 
 	void Start()
 	{
+		anim = GetComponent<Animator>();
 
 		gunLevel = 0;
 		damageLevel = 1;
@@ -41,6 +43,9 @@ public class SpaceshipHandler : MonoBehaviour
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
 		_halfSpriteRect.width /= 2;
 		_halfSpriteRect.height /= 2;
+
+
+
 	}
 
 	void FixedUpdate()
@@ -79,7 +84,18 @@ public class SpaceshipHandler : MonoBehaviour
 		else if (screenPos.y + _halfSpriteRect.height > _mainCamera.pixelHeight && movementX < 0) movementX = 0;
 
 		
-		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject,Time.deltaTime,gunLevel);
+
+		//Animation
+		if (movementX > 0)
+			anim.SetBool("GoingRight", true);
+		else
+			anim.SetBool("GoingRight", false);
+		if (movementX < 0)
+			anim.SetBool("GoingLeft", true);
+		else
+			anim.SetBool("GoingLeft", false);
+
+		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject, Time.deltaTime, gunLevel);
 	}
 
 
