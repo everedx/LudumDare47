@@ -1205,9 +1205,9 @@ MonoBehaviour:
   - chance: 2
     item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
   - chance: 10
-    item: {fileID: 8006397542618039955, guid: 17af3b92ee5d44040b897f02f6817017, type: 3}
+    item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
   - chance: 10
-    item: {fileID: 8006397542618039955, guid: f5d1ab213de17fe4f8965e1a7faf5313, type: 3}
+    item: {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
   timeToSpawnNewItem: 3
 --- !u!4 &1807094408
 Transform:

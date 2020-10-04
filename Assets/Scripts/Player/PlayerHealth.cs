@@ -83,7 +83,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
 	public void AddShield(GameObject shieldPrefab, ShieldPowerup powerup)
 	{
-		_shield = Instantiate(shieldPrefab, transform);
+        Destroy(_shield);
+        _shield = Instantiate(shieldPrefab, transform);
 		currentShieldHealth = powerup.shieldHealth;
 	}
 }
