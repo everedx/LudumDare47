@@ -58,12 +58,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
-                //
-                if (lootObject != null)
-                {
-                    Instantiate(lootObject, transform.position, Quaternion.identity);
-                }
-                Destroy(gameObject);
+				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }
       
@@ -73,6 +68,10 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
 	protected virtual void OnZeroHealth()
 	{
+		if (lootObject != null)
+		{
+			Instantiate(lootObject, transform.position, Quaternion.identity);
+		}
 		Destroy(gameObject);
 	}
 
