@@ -32,7 +32,7 @@ public class SpaceshipHandler : MonoBehaviour
 
 		_shooters = new List<IShooter>();
 		_shooters.Add(new SimpleShooter(transform.parent.gameObject));
-		_shooters.Add(new ShotgunShooter(8, transform.parent.gameObject));
+		_shooters.Add(new ShotgunShooter(3, transform.parent.gameObject));
 		_shooters.Add(new BlastShooter(gameObject));// Use the ship instead of the parent in this case because the blast should follow the ship
 		_shooters.Add(new MachineGunShooter(transform.parent.gameObject));
 		_activeShooter = _shooters[0];

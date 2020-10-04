@@ -18,10 +18,10 @@ public class ShotgunShooter : IShooter
 
 	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level)
 	{
-		if (justPressed)
+		if (justPressed && spaceShip.tag.Equals("Player"))
 		{
-			float eulerDif = 100f / numberOfBullets;
-			for (float i = -50; i <= 50; i += eulerDif)
+			float eulerDif = 100f / ((numberOfBullets-1) + 2*(level-1));
+			for (float i = -50 ; i <= 50; i += eulerDif)
 			{
 				var go = Object.Instantiate(Prefab, spaceShip.transform.position, spaceShip.transform.rotation, parentObject.transform);
 				go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
