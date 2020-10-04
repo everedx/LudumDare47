@@ -31,7 +31,8 @@ public class Blast : MonoBehaviour, IBullet
 
 	private void Update()
 	{
-		if (Camera.main.WorldToScreenPoint(_head.transform.position).x < Camera.main.pixelWidth + headScreenOverlap)
+		if (ownerTag == "Player" && Camera.main.WorldToScreenPoint(_head.transform.position).x < Camera.main.pixelWidth + headScreenOverlap ||
+			ownerTag != "Player" && Camera.main.WorldToScreenPoint(_head.transform.position).x > - headScreenOverlap)
 		{
 			_bodyRenderer.size = new Vector2(_bodyRenderer.size.x, _bodyRenderer.size.y + growthSpeed * Time.deltaTime);
 			if (keepMovingHead) _head.transform.Translate(0, headSpeed * Time.deltaTime, 0, Space.Self); // Avoid jittery head
@@ -47,7 +48,12 @@ public class Blast : MonoBehaviour, IBullet
 	{
 		keepMovingHead = false;
 		var blastScreenPos = Camera.main.WorldToScreenPoint(transform.position);
-		var pos = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth + headScreenOverlap, blastScreenPos.y, 0));
+		Vector3 pos;
+		if(ownerTag == "Player")
+			pos = Camera.main.ScreenToWorldPoint(new Vector3(Camera.main.pixelWidth + headScreenOverlap, blastScreenPos.y, 0));
+		else
+			pos = Camera.main.ScreenToWorldPoint(new Vector3(-headScreenOverlap, blastScreenPos.y, 0));
+
 		var finalPos = new Vector3(pos.x, pos.y, _head.transform.position.z);
 		_head.transform.position = finalPos;
 	}
@@ -56,13 +62,14 @@ public class Blast : MonoBehaviour, IBullet
 	{
 		ContactFilter2D cf = new ContactFilter2D();
 		cf.useTriggers = true;
+
 		var count = Physics2D.Raycast(transform.position, transform.up, cf, results, _raycastDistance);
 
 		for(int i = 0; i < count; i++)
 		{
 			var hit = results[i];
 			var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
-			if (damageable != null && hit.collider.tag != "Player")
+			if (damageable != null && hit.collider.tag != ownerTag)
 			{
 				damageable.Damage(damage);
 			}

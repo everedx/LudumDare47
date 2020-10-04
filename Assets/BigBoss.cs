@@ -39,6 +39,10 @@ public class BigBoss : EnemyDamageable, ILevelable
 	private MachineGunShooter machinegunLeft;
 	private MachineGunShooter machinegunRight;
 	private BlastShooter blast;
+	[SerializeField] int machinegunLevel;
+	[SerializeField] int shotgunLevel;
+	[SerializeField] int laserLevel;
+
 	private float lastMachinegunShot;
 
 	private Transform center;
@@ -117,7 +121,6 @@ public class BigBoss : EnemyDamageable, ILevelable
 			if (currMovements < maxMachineguns)
 			{
 				currMovements++;
-				Debug.Log(currMovements);
 				movingToPosition = new Vector3(
 					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
 					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
@@ -131,15 +134,15 @@ public class BigBoss : EnemyDamageable, ILevelable
 			}
 		}
 
-		if (MoveTowards(movingToPosition.Value, false))
+		if (movingToPosition != null && MoveTowards(movingToPosition.Value, false))
 		{
 			movingToPosition = null;
 		}
 
 		if(Time.time - machinegunFreq > lastMachinegunShot)
 		{
-			machinegunLeft.FromCurrentShootingState(false, false, true, left.gameObject, 666, 1, 0f);
-			machinegunRight.FromCurrentShootingState(false, false, true, right.gameObject, 666, 1, 0f);
+			machinegunLeft.FromCurrentShootingState(false, false, true, left.gameObject, 666, machinegunLevel, 0f);
+			machinegunRight.FromCurrentShootingState(false, false, true, right.gameObject, 666, machinegunLevel, 0f);
 			lastMachinegunShot = Time.time;
 		}
 	}
@@ -151,7 +154,6 @@ public class BigBoss : EnemyDamageable, ILevelable
 			if (currMovements < maxShotguns)
 			{
 				currMovements++;
-				Debug.Log(currMovements);
 				movingToPosition = new Vector3(
 					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
 					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
@@ -165,9 +167,9 @@ public class BigBoss : EnemyDamageable, ILevelable
 			}
 		}
 
-		if (MoveTowards(movingToPosition.Value, false))
+		if (movingToPosition != null && MoveTowards(movingToPosition.Value, false))
 		{
-			shotgun.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, 1, 1f);
+			shotgun.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, shotgunLevel, 1f);
 			movingToPosition = null;
 		}
 	}
@@ -179,7 +181,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 			if (currMovements < maxBlasts)
 			{
 				currMovements++;
-				Debug.Log(currMovements);
+				blast.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, laserLevel, 1);
 				movingToPosition = new Vector3(
 					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
 					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
@@ -193,12 +195,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 			}
 		}
 
-		if (MoveTowards(movingToPosition.Value, false))
-		{
-			movingToPosition = null;
-		}
-
-		blast.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, 1, 1);
+		if (movingToPosition != null &&  MoveTowards(movingToPosition.Value, false)) movingToPosition = null;
 	}
 
 	private void HandleTauntingU()
@@ -208,7 +205,6 @@ public class BigBoss : EnemyDamageable, ILevelable
 			if (currMovements < maxTaunts)
 			{
 				currMovements++;
-				Debug.Log(currMovements);
 				movingToPosition = new Vector3(
 					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
 					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 4, Camera.main.pixelHeight / 4),
@@ -222,7 +218,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 			}
 		}
 
-		if (MoveTowards(movingToPosition.Value, false)) movingToPosition = null;
+		if (movingToPosition != null && MoveTowards(movingToPosition.Value, false)) movingToPosition = null;
 	}
 
 	private void HandleEnteringTheMothafuckaScreen()
@@ -233,8 +229,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 
 	private States RandomStatusExceptNeutral()
 	{
-		return States.BoomBigLaser;
-		//return (States)Random.Range(1, 5);
+		return (States)Random.Range(1, 5);
 	}
 
 	private bool MoveTowards(Vector3 position, bool slowly)
@@ -263,6 +258,10 @@ public class BigBoss : EnemyDamageable, ILevelable
 
 	public void SetLevel(int level)
 	{
-		// TODO
+		if(level <= 2) machinegunLevel = shotgunLevel = laserLevel = 1;
+		else if (level <= 6) machinegunLevel = shotgunLevel = laserLevel = 2;
+		else machinegunLevel = shotgunLevel = laserLevel = 3;
+
+		currentHealth = initialHealth = level * 10;
 	}
 }

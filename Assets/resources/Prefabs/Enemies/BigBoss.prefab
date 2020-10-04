@@ -40,9 +40,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1652423752952571080}
   - component: {fileID: 2792786805296209940}
-  - component: {fileID: 1526100071138880548}
   - component: {fileID: 9133548002030545608}
   - component: {fileID: 5984086016772831119}
+  - component: {fileID: 2922599264714074792}
   m_Layer: 8
   m_Name: BigBoss
   m_TagString: Untagged
@@ -120,50 +120,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!60 &1526100071138880548
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1515961137483911257}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.2109375, y: 4.15625}
-    newSize: {x: 0.64, y: 0.64}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.1724726, y: 0.12356949}
-      - {x: 0.094518065, y: 0.18837547}
-      - {x: 0.06106949, y: 0.5760975}
-      - {x: 0, y: 0.71875}
-      - {x: -0.0044323206, y: 0.691555}
-      - {x: -0.07872254, y: 0.6779585}
-      - {x: -0.09727234, y: 0.57977676}
-      - {x: -0.15484524, y: 0.19378567}
-      - {x: -0.34723318, y: -0.11839104}
-      - {x: -0.5162225, y: -0.15362453}
-      - {x: -0.6229817, y: -0.24476719}
-      - {x: -0.6507641, y: -0.23234749}
-      - {x: -0.6099725, y: -0.3695135}
-      - {x: -0.36951423, y: -0.39933395}
-      - {x: 0.43893027, y: -0.38573647}
-      - {x: 0.574667, y: -0.3342085}
-      - {x: 0.57762194, y: -0.31847954}
-      - {x: 0.50668097, y: -0.210639}
-      - {x: 0.24451411, y: -0.04079151}
 --- !u!50 &9133548002030545608
 Rigidbody2D:
   serializedVersion: 4
@@ -198,13 +154,78 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderObject: {fileID: -6465566751694194690, guid: 4a5745436f9a77b42a3d41bcdf0c679a, type: 3}
-  initialHealth: 3
+  initialHealth: 200
   damageOnCollision: 1
   psHit: {fileID: 1404694851085340581}
   lootObject: {fileID: 0}
   slowMaxSpeed: 4
   fastMaxSpeed: 8
   machinegunFreq: 0.5
+  machinegunLevel: 3
+  shotgunLevel: 3
+  laserLevel: 3
+--- !u!60 &2922599264714074792
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515961137483911257}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.2109375, y: 4.15625}
+    newSize: {x: 0.64, y: 0.64}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.734375, y: -2.078125}
+      - {x: 0.921875, y: -1.921875}
+      - {x: 0.921875, y: -1.796875}
+      - {x: 0.796875, y: -1.640625}
+      - {x: 0.421875, y: -1.453125}
+      - {x: -0.546875, y: -1.453125}
+      - {x: -1.015625, y: -1.734375}
+      - {x: -1.015625, y: -2.015625}
+      - {x: -0.953125, y: -2.078125}
+      - {x: -0.453125, y: -2.078125}
+      - {x: -0.484375, y: -1.984375}
+      - {x: -0.453125, y: -2.015625}
+      - {x: -0.296875, y: -2.078125}
+    - - {x: 1.578125, y: 1.015625}
+      - {x: 1.359375, y: 1.109375}
+      - {x: 0.984375, y: 0.890625}
+      - {x: 0.953125, y: 0.328125}
+      - {x: 0.578125, y: 0.015625}
+      - {x: 0.515625, y: 0.578125}
+      - {x: 0.765625, y: 1.296875}
+      - {x: 0.140625, y: 2.078125}
+      - {x: -0.203125, y: 2.078125}
+      - {x: -0.796875, y: 1.296875}
+      - {x: -0.734375, y: 1.046875}
+      - {x: -0.640625, y: 0.796875}
+      - {x: -0.546875, y: 0.203125}
+      - {x: -0.953125, y: 0.484375}
+      - {x: -1.234375, y: 1.203125}
+      - {x: -1.609375, y: 1.203125}
+      - {x: -1.609375, y: -0.203125}
+      - {x: -1.421875, y: -0.484375}
+      - {x: -0.796875, y: -1.296875}
+      - {x: -0.671875, y: -1.421875}
+      - {x: 0.578125, y: -1.421875}
+      - {x: 0.703125, y: -1.296875}
+      - {x: 1.390625, y: -0.359375}
+      - {x: 1.578125, y: 0.109375}
 --- !u!1 &4298110801471123797
 GameObject:
   m_ObjectHideFlags: 0
