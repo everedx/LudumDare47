@@ -16,7 +16,7 @@ public class BlastShooter : IShooter
 		this.parentObject = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip,float deltaTime, int level)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip,float deltaTime, int level, float duration)
 	{
 		if (justPressed && spaceShip.tag.Equals("Player"))
 		{
@@ -24,7 +24,7 @@ public class BlastShooter : IShooter
 			go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
 			go.transform.rotation = spaceShip.transform.rotation;
 			go.transform.Translate(0, yOffset, 0, Space.Self);
-			Object.Destroy(go, 2f);
+			Object.Destroy(go, duration);
 		}
 	}
 }

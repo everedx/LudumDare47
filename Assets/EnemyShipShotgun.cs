@@ -43,7 +43,7 @@ public class EnemyShipShotgun : EnemyDamageable, ILevelable
 		if (Time.time - lastShotAt > shootingFrequency)
 		{
 			lastShotAt = Time.time;
-			shotgunShooter.FromCurrentShootingState(true, false, false, gameObject, Time.fixedDeltaTime, shotgunLevel);
+			shotgunShooter.FromCurrentShootingState(true, false, false, gameObject, Time.fixedDeltaTime, shotgunLevel, 0f);
 		}
 		transform.Translate(0, speed * Time.fixedDeltaTime, 0, Space.Self);
 	}

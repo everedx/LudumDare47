@@ -17,7 +17,7 @@ public class RadialShooter : IShooter
 		parentOfBullet = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration)
 	{
 		float eulerDif = 360f / numberOfBullets;
 		for (float i = 0; i < 360; i += eulerDif)

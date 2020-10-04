@@ -6,16 +6,15 @@ public class BigBoss : EnemyDamageable, ILevelable
 {
 	[SerializeField] float slowMaxSpeed;
 	[SerializeField] float fastMaxSpeed;
+	[SerializeField] float machinegunFreq;
 
 	private enum States
 	{
 		EnteringTheMothafuckaScreen,
 		TauntingU,
-		ShootinShitInBurst,
 		BoomBigLaser,
 		ShotgunCraze,
-		MachineTatata,
-		GoBackHome
+		MachineTatata
 	}
 
 	private Vector3 neutralPosition;
@@ -28,9 +27,23 @@ public class BigBoss : EnemyDamageable, ILevelable
 	private float aceleration = 5f;
 	private float initialZ;
 
-	private Vector3? tauntingPosition;
+	private Vector3? movingToPosition;
+
 	private int maxTaunts = 3;
-	private int currTaunts = 0;
+	private int maxShotguns = 3;
+	private int maxMachineguns = 3;
+	private int maxBlasts = 1;
+
+	private int currMovements = 0;
+	private ShotgunShooter shotgun;
+	private MachineGunShooter machinegunLeft;
+	private MachineGunShooter machinegunRight;
+	private BlastShooter blast;
+	private float lastMachinegunShot;
+
+	private Transform center;
+	private Transform left;
+	private Transform right;
 
 	// Start is called before the first frame update
 	void Start()
@@ -39,13 +52,26 @@ public class BigBoss : EnemyDamageable, ILevelable
 		var player = GameObject.FindGameObjectWithTag("Player");
 		var transformParent = player.transform.parent;
 		transform.parent = transformParent;
-		transform.right = transformParent.up;
+		transform.up = -transformParent.up;
 
 		ChangeStateTo(States.EnteringTheMothafuckaScreen);
 
 		// Place the neutral position at half screen height and 5/6ths screen width
 		neutralPosition = new Vector3((Camera.main.pixelWidth / 6) * 5, Camera.main.pixelHeight / 2);
 		initialZ = transform.position.z;
+
+		for (int i = 0; i < transform.childCount; i++)
+		{
+			var child = transform.GetChild(i);
+			if (child.name == "Center") center = child;
+			if (child.name == "Left") left = child;
+			if (child.name == "Right") right = child;
+		}
+
+		shotgun = new ShotgunShooter(center.gameObject);
+		machinegunLeft = new MachineGunShooter(left.gameObject);
+		machinegunRight = new MachineGunShooter(right.gameObject);
+		blast = new BlastShooter(center.gameObject);
 	}
 
 	private void ChangeStateTo(States newState)
@@ -70,9 +96,6 @@ public class BigBoss : EnemyDamageable, ILevelable
 			case States.TauntingU:
 				HandleTauntingU();
 				break;
-			case States.ShootinShitInBurst:
-				HandleShootinShitInBurst();
-				break;
 			case States.BoomBigLaser:
 				HandleBoomBigLaser();
 				break;
@@ -89,46 +112,117 @@ public class BigBoss : EnemyDamageable, ILevelable
 
 	private void HandleMachineTatata()
 	{
+		if (movingToPosition == null)
+		{
+			if (currMovements < maxMachineguns)
+			{
+				currMovements++;
+				Debug.Log(currMovements);
+				movingToPosition = new Vector3(
+					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
+					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
+					0);
+			}
+			else
+			{
+				currMovements = 0;
+				movingToPosition = null;
+				ChangeStateTo(States.EnteringTheMothafuckaScreen);
+			}
+		}
 
+		if (MoveTowards(movingToPosition.Value, false))
+		{
+			movingToPosition = null;
+		}
+
+		if(Time.time - machinegunFreq > lastMachinegunShot)
+		{
+			machinegunLeft.FromCurrentShootingState(false, false, true, left.gameObject, 666, 1, 0f);
+			machinegunRight.FromCurrentShootingState(false, false, true, right.gameObject, 666, 1, 0f);
+			lastMachinegunShot = Time.time;
+		}
 	}
 
 	private void HandleShotgunCraze()
 	{
+		if (movingToPosition == null)
+		{
+			if (currMovements < maxShotguns)
+			{
+				currMovements++;
+				Debug.Log(currMovements);
+				movingToPosition = new Vector3(
+					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
+					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
+					0);
+			}
+			else
+			{
+				currMovements = 0;
+				movingToPosition = null;
+				ChangeStateTo(States.EnteringTheMothafuckaScreen);
+			}
+		}
 
+		if (MoveTowards(movingToPosition.Value, false))
+		{
+			shotgun.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, 1, 1f);
+			movingToPosition = null;
+		}
 	}
 
 	private void HandleBoomBigLaser()
 	{
+		if (movingToPosition == null)
+		{
+			if (currMovements < maxBlasts)
+			{
+				currMovements++;
+				Debug.Log(currMovements);
+				movingToPosition = new Vector3(
+					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
+					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 3, Camera.main.pixelHeight / 3),
+					0);
+			}
+			else
+			{
+				currMovements = 0;
+				movingToPosition = null;
+				ChangeStateTo(States.EnteringTheMothafuckaScreen);
+			}
+		}
 
-	}
+		if (MoveTowards(movingToPosition.Value, false))
+		{
+			movingToPosition = null;
+		}
 
-	private void HandleShootinShitInBurst()
-	{
-
+		blast.FromCurrentShootingState(true, false, false, center.gameObject, Time.fixedDeltaTime, 1, 1);
 	}
 
 	private void HandleTauntingU()
 	{
-		if (tauntingPosition == null)
+		if (movingToPosition == null)
 		{
-			if (currTaunts < maxTaunts)
+			if (currMovements < maxTaunts)
 			{
-				currTaunts++;
-				Debug.Log(currTaunts);
-				tauntingPosition = new Vector3(
+				currMovements++;
+				Debug.Log(currMovements);
+				movingToPosition = new Vector3(
 					neutralPosition.x + Random.Range(-Camera.main.pixelWidth / 10, Camera.main.pixelWidth / 10),
 					neutralPosition.y + Random.Range(-Camera.main.pixelHeight / 4, Camera.main.pixelHeight / 4),
 					0);
 			}
 			else
 			{
-				currTaunts = 0;
-				tauntingPosition = null;
+				currMovements = 0;
+				movingToPosition = null;
 				ChangeStateTo(States.EnteringTheMothafuckaScreen);
 			}
 		}
 
-		if (MoveTowards(tauntingPosition.Value, false)) tauntingPosition = null;
+		if (MoveTowards(movingToPosition.Value, false)) movingToPosition = null;
 	}
 
 	private void HandleEnteringTheMothafuckaScreen()
@@ -139,7 +233,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 
 	private States RandomStatusExceptNeutral()
 	{
-		return States.ShootinShitInBurst;
+		return States.BoomBigLaser;
 		//return (States)Random.Range(1, 5);
 	}
 

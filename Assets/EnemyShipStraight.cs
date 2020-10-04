@@ -38,7 +38,7 @@ public class EnemyShipStraight : EnemyDamageable, ILevelable
 		if (Time.time - lastShotAt > shootingFrequency)
 		{
 			lastShotAt = Time.time;
-			shooter.FromCurrentShootingState(true, false, true, gameObject, 666, machinegunLevel);
+			shooter.FromCurrentShootingState(true, false, true, gameObject, 666, machinegunLevel, 0f);
 		}
 
 		// Move forwards

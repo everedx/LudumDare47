@@ -68,7 +68,7 @@ public class BurstShip : EnemyDamageable
             {
                 
                 status = Statuses.Shooting;
-                _shooter.FromCurrentShootingState(false,false,false,gameObject,Time.deltaTime,1);
+                _shooter.FromCurrentShootingState(false,false,false,gameObject,Time.deltaTime,1, 0f);
                 timer = 0;
             }
            
@@ -79,7 +79,7 @@ public class BurstShip : EnemyDamageable
     {
         if (timer >= secondsToShoot)
         {
-            _shooter.FromCurrentShootingState(false, false, false, gameObject,Time.deltaTime,1);
+            _shooter.FromCurrentShootingState(false, false, false, gameObject,Time.deltaTime,1, 0f);
             status = Statuses.GoingAway;
             targetDistance = distanceToPlayer;
             distanceToPlayer = Vector2.Distance(transform.position, playerParentTransform.position);
