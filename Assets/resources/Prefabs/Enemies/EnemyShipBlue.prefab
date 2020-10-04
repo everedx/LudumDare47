@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2959310872201168295}
   - component: {fileID: 2959310872201168294}
   - component: {fileID: 2959310872201168292}
-  - component: {fileID: 2959310872201168293}
+  - component: {fileID: 706695906233312860}
   - component: {fileID: -1078309385720158632}
   m_Layer: 8
-  m_Name: EnemyShipSin
+  m_Name: EnemyShipBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8839699582467403087, guid: ef91852ec7f4d6945a09baa0943377bb, type: 3}
+  m_Sprite: {fileID: -8039881348459288230, guid: ef91852ec7f4d6945a09baa0943377bb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,7 +131,7 @@ PolygonCollider2D:
       - {x: 0.57762194, y: -0.31847954}
       - {x: 0.50668097, y: -0.210639}
       - {x: 0.24451411, y: -0.04079151}
---- !u!114 &2959310872201168293
+--- !u!114 &706695906233312860
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,15 +140,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 2959310872201168297}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ecbd7d7afee8904e901f865438dd9c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 91f7dac9a9a8f4747b0f2040cd922c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   shaderObject: {fileID: -6465566751694194690, guid: 4a5745436f9a77b42a3d41bcdf0c679a, type: 3}
-  initialHealth: 2
+  initialHealth: 3
   damageOnCollision: 1
-  psHit: {fileID: 2959310872925571458}
-  frequency: 4
-  magnitudeWaveMovement: 15
+  psHit: {fileID: 0}
+  speed: 4
+  shootingFrequency: 2
+  chanceOfSpawningBehind: 0.5
 --- !u!50 &-1078309385720158632
 Rigidbody2D:
   serializedVersion: 4

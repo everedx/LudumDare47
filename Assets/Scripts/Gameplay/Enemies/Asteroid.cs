@@ -23,7 +23,7 @@ public class Asteroid : EnemyDamageable
     // Update is called once per frame
     void Update()
     {
-        
+		base.Update();
     }
 
 	private void FixedUpdate()
