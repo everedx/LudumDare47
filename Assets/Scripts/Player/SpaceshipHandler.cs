@@ -119,7 +119,10 @@ public class SpaceshipHandler : MonoBehaviour
 
 	public void LoseOneLevel()
 	{
-		gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
+		if (gunLevel == 0)
+			gunLevel = 0;
+		else
+			gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
 		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
 		speedLevel = Mathf.Clamp(speedLevel - 1, 1, 3);
 		laserLevel = Mathf.Clamp(laserLevel - 1, 1, 3);
