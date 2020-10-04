@@ -25,7 +25,7 @@ public class SpaceshipHandler : MonoBehaviour
 	void Start()
 	{
 
-		gunLevel = 1;
+		gunLevel = 0;
 		damageLevel = 1;
 		speedLevel = 1;
 		laserLevel = 1;
