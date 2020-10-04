@@ -54,13 +54,18 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
-                Destroy(gameObject);
+				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }
       
         }
 
     }
+
+	protected virtual void OnZeroHealth()
+	{
+		Destroy(gameObject);
+	}
 
 	private void OnTriggerEnter2D(Collider2D coll)
 	{
