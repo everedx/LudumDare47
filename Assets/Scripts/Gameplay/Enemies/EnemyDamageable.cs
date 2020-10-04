@@ -71,6 +71,11 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 
     }
 
+	protected virtual void OnZeroHealth()
+	{
+		Destroy(gameObject);
+	}
+
 	private void OnTriggerEnter2D(Collider2D coll)
 	{
 		var bullet = coll.gameObject.GetComponent<IBullet>();
