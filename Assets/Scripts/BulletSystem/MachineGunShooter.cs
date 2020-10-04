@@ -40,14 +40,14 @@ public class MachineGunShooter : IShooter
 				GenerateBullet(spaceShip, spaceShip.transform.position);
 				break;
 			case 2:
-				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.GetComponent<SpriteRenderer>().size.y  ));
-				GenerateBullet(spaceShip,Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.GetComponent<SpriteRenderer>().size.y  ));
+				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.transform.localScale.y * 7));
+				GenerateBullet(spaceShip,Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.transform.localScale.y * 7));
 				break;
 			case 3:
-				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.GetComponent<SpriteRenderer>().size.y));
-				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.GetComponent<SpriteRenderer>().size.y));
-				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.GetComponent<SpriteRenderer>().size.y *4 ));
-				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.GetComponent<SpriteRenderer>().size.y * 4));
+				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.transform.localScale.y * 7));
+				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.transform.localScale.y * 7));
+				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.up * spaceShip.transform.localScale.y * 20 ));
+				GenerateBullet(spaceShip, Camera.main.ScreenToWorldPoint(Camera.main.WorldToScreenPoint(spaceShip.transform.position) + Vector3.down * spaceShip.transform.localScale.y * 20));
 				break;
 
 				

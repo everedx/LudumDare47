@@ -16,7 +16,8 @@ public class ItemGenerator : MonoBehaviour
 
 	[SerializeField] GeneratedItem[] Items;
     [SerializeField] float timeToSpawnNewItem = 2;
-    float timer;
+	[SerializeField] int level = 1;
+	float timer;
 	int chanceSum;
 
     // Start is called before the first frame update
@@ -39,7 +40,10 @@ public class ItemGenerator : MonoBehaviour
 			Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
 			spawnPosition = spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up * Random.Range(-10, 1);
 
-			Instantiate(GetObjectForVal(val), spawnPosition, Quaternion.identity);
+			var newItem = GetObjectForVal(val);
+			var levelable = newItem.GetComponent<ILevelable>();
+			if (levelable != null) levelable.SetLevel(level);
+			Instantiate(newItem, spawnPosition, Quaternion.identity);
 
             timer = 0;
         }

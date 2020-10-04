@@ -612,7 +612,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -7257,7 +7257,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -8553,9 +8553,10 @@ MonoBehaviour:
     item: {fileID: 6716530225024996041, guid: e1e923daea5427548a2b25e07512103a, type: 3}
   - chance: 10
     item: {fileID: 5650533222466819914, guid: 00e486b0c2889694faade8eb77c1dadc, type: 3}
-  - chance: 1000
+  - chance: 10
     item: {fileID: 2959310872201168297, guid: cfb2470d2e4dd1a4a86ffc762b015d99, type: 3}
-  timeToSpawnNewItem: 1
+  timeToSpawnNewItem: 3
+  level: 1
 --- !u!4 &1807094408
 Transform:
   m_ObjectHideFlags: 0

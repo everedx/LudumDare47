@@ -7,11 +7,9 @@ public class ShotgunShooter : IShooter
 	private const string BulletPrefabPath = "Prefabs/Bullets/SimpleBullet";
 	private GameObject Prefab;
 	private GameObject parentObject;
-	private int numberOfBullets;
 
-	public ShotgunShooter(int numberOfBullets, GameObject parentObject)
+	public ShotgunShooter(GameObject parentObject)
 	{
-		this.numberOfBullets = numberOfBullets;
 		Prefab = Resources.Load(BulletPrefabPath, typeof(GameObject)) as GameObject;
 		this.parentObject = parentObject;
 	}
@@ -20,7 +18,7 @@ public class ShotgunShooter : IShooter
 	{
 		if (justPressed)
 		{
-			float eulerDif = 100f / ((numberOfBullets-1) + 2*(level-1));
+			float eulerDif = 100f / (2*(level));
 			for (float i = -50 ; i <= 50; i += eulerDif)
 			{
 				var go = Object.Instantiate(Prefab, spaceShip.transform.position, spaceShip.transform.rotation, parentObject.transform);

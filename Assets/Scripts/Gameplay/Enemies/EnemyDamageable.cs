@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyDamageable : MonoBehaviour, IDamageable
 {
     [SerializeField] Shader shaderObject;
-    [SerializeField] float initialHealth = 3;
+    [SerializeField] protected float initialHealth = 3;
     [SerializeField] float damageOnCollision = 1;
     [SerializeField] ParticleSystem psHit;
     [SerializeField] GameObject lootObject;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BurstGroup : MonoBehaviour
+public class BurstGroup : MonoBehaviour, ILevelable
 {
     [SerializeField] GameObject ship;
     [SerializeField] int minNumberOfShips = 1;
@@ -62,4 +62,11 @@ public class BurstGroup : MonoBehaviour
         }
         return listOfOffsets;
     }
+
+	public void SetLevel(int level)
+	{
+		minNumberOfShips = Mathf.Max(1, level - 3);
+		maxNumberOfShips = Mathf.Max(1, level - 3);
+		timeBetweenShipGeneration = 5 / level;
+	}
 }

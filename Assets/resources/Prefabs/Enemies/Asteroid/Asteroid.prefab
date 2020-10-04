@@ -5046,11 +5046,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderObject: {fileID: -6465566751694194690, guid: 4a5745436f9a77b42a3d41bcdf0c679a, type: 3}
-  initialHealth: 1
+  initialHealth: 4
   damageOnCollision: 3
   psHit: {fileID: 3066087225429497590}
-  piecesOnDestroyed: 6
-  movementSpeed: 0
+  lootObject: {fileID: 0}
+  piecesOnDestroyed: 22
+  movementSpeed: 3
   AsteroidPieces:
   - {fileID: 8231991501961578219, guid: 7e4f7cecbc7ca9848a7c3f3b0d5804b2, type: 3}
   - {fileID: 5647037908885539658, guid: 3cc341e2d46c5914cad4b1a75d4cd4d9, type: 3}

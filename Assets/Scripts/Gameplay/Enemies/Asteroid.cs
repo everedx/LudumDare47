@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : EnemyDamageable
+public class Asteroid : EnemyDamageable, ILevelable
 {
 	[SerializeField] int piecesOnDestroyed = 0;
 	[SerializeField] float movementSpeed = 2;
@@ -18,6 +18,14 @@ public class Asteroid : EnemyDamageable
 
 		playerParentTransform = GameObject.FindGameObjectWithTag("Player").transform.parent;
 		animator = GetComponent<Animator>();
+
+		var player = GameObject.FindGameObjectWithTag("Player");
+		var transformParent = player.transform.parent;
+		transform.parent = transformParent;
+
+		// Dont look at the player if they are stray pieces
+		if(piecesOnDestroyed != 0)
+			transform.up = -transformParent.up;
 	}
 
     // Update is called once per frame
@@ -28,7 +36,7 @@ public class Asteroid : EnemyDamageable
 
 	private void FixedUpdate()
 	{
-		transform.Translate(Vector2.left * movementSpeed * Time.fixedDeltaTime, Space.Self);
+		transform.Translate(0, movementSpeed * Time.fixedDeltaTime, 0, Space.Self);
 	}
 
 	protected override void OnZeroHealth()
@@ -49,5 +57,12 @@ public class Asteroid : EnemyDamageable
 			Destroy(GetComponent<Rigidbody2D>());
 			Destroy(gameObject, 0.15f);
 		}
+	}
+
+	public void SetLevel(int level)
+	{
+		piecesOnDestroyed = 2 + 2 * level;
+		initialHealth = 1 + 0.3f * level;
+		currentHealth = 1 + 0.3f * level;
 	}
 }

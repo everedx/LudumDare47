@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 
-public class SinusoidalGroup : MonoBehaviour
+public class SinusoidalGroup : MonoBehaviour, ILevelable
 {
     [SerializeField] GameObject ship;
     [SerializeField] int minNumberOfShips = 6;
@@ -51,4 +51,10 @@ public class SinusoidalGroup : MonoBehaviour
         else if (numberOfGeneratedShips >= numberOfTotalShips)
             Destroy(gameObject);
     }
+
+	void ILevelable.SetLevel(int level)
+	{
+		minNumberOfShips = level;
+		maxNumberOfShips = level + 1;
+	}
 }

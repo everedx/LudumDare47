@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyShipShotgun : EnemyDamageable
+public class EnemyShipShotgun : EnemyDamageable, ILevelable
 {
 	[SerializeField] float speed;
 	[SerializeField] float shootingFrequency;
 	[SerializeField] float chanceOfSpawningBehind;
+	[SerializeField] int shotgunLevel;
 
 	private ShotgunShooter shotgunShooter;
 	private float lastShotAt;
@@ -28,7 +29,7 @@ public class EnemyShipShotgun : EnemyDamageable
 			transform.up = -transformParent.up;
 
 		transform.parent = transformParent;
-		shotgunShooter = new ShotgunShooter(3, transform.parent.gameObject);
+		shotgunShooter = new ShotgunShooter(transform.parent.gameObject);
 		lastShotAt = Time.time;
 	}
 
@@ -42,8 +43,19 @@ public class EnemyShipShotgun : EnemyDamageable
 		if (Time.time - lastShotAt > shootingFrequency)
 		{
 			lastShotAt = Time.time;
-			shotgunShooter.FromCurrentShootingState(true, false, false, gameObject, Time.fixedDeltaTime, 1);
+			shotgunShooter.FromCurrentShootingState(true, false, false, gameObject, Time.fixedDeltaTime, shotgunLevel);
 		}
 		transform.Translate(0, speed * Time.fixedDeltaTime, 0, Space.Self);
+	}
+
+	public void SetLevel(int level)
+	{
+		shootingFrequency = 3 - 0.1f * level;
+		currentHealth = 0.5f + 0.5f * level;
+		initialHealth = 0.5f + 0.5f * level;
+
+		if (level < 4) shotgunLevel = 1;
+		else if (level < 8) shotgunLevel = 2;
+		else shotgunLevel = 3;
 	}
 }
