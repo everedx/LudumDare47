@@ -25,6 +25,7 @@ public class ItemGenerator : MonoBehaviour
     {
         timer = 0;
 		chanceSum = Items.Sum(i => i.chance);
+		timer = timeToSpawnNewItem; // Spawn one at the beginning and wait... good for testing items
     }
 
     // Update is called once per frame
