@@ -95,7 +95,7 @@ public class SpaceshipHandler : MonoBehaviour
 		else
 			anim.SetBool("GoingLeft", false);
 
-		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject, Time.deltaTime, gunLevel);
+		_activeShooter.FromCurrentShootingState(Input.GetKeyDown(shoot), Input.GetKeyUp(shoot), Input.GetKey(shoot), gameObject, Time.deltaTime, gunLevel, 2f);
 	}
 
 

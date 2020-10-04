@@ -18,7 +18,7 @@ public class MachineGunShooter : IShooter
 		timer = 2000;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration)
 	{
 		timer += deltaTime;
 
