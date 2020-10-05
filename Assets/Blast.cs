@@ -35,6 +35,7 @@ public class Blast : MonoBehaviour, IBullet
 			ownerTag != "Player" && Camera.main.WorldToScreenPoint(_head.transform.position).x > - headScreenOverlap)
 		{
 			_bodyRenderer.size = new Vector2(_bodyRenderer.size.x, _bodyRenderer.size.y + growthSpeed * Time.deltaTime);
+			_bodyRenderer.transform.Translate(0, (headSpeed / 2f) * Time.deltaTime, 0, Space.Self);
 			if (keepMovingHead) _head.transform.Translate(0, headSpeed * Time.deltaTime, 0, Space.Self); // Avoid jittery head
 			else AnchorHeadToScreenPosition();
 		}
