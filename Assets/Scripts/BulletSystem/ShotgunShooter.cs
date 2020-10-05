@@ -14,7 +14,7 @@ public class ShotgunShooter : IShooter
 		this.parentObject = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration, float damageMultiplier = 1)
 	{
 		if (justPressed)
 		{
@@ -23,6 +23,7 @@ public class ShotgunShooter : IShooter
 			{
 				var go = Object.Instantiate(Prefab, spaceShip.transform.position, spaceShip.transform.rotation, parentObject.transform);
 				go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
+				go.GetComponent<IBullet>().SetDamageMultiplier(damageMultiplier);
 				go.transform.Rotate(0, 0, i);
 				Object.Destroy(go, 2f);
 			}

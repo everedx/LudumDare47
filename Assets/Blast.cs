@@ -17,7 +17,10 @@ public class Blast : MonoBehaviour, IBullet
 	private float _raycastDistance;
 	private RaycastHit2D[] results = new RaycastHit2D[10];
 	private bool keepMovingHead = true;
+
 	private float headScreenOverlap = 10;
+
+	float damageMultiplier = 1;
 
 	// Start is called before the first frame update
 	void Start()
@@ -72,7 +75,7 @@ public class Blast : MonoBehaviour, IBullet
 			var damageable = hit.collider.gameObject.GetComponent<IDamageable>();
 			if (damageable != null && hit.collider.tag != ownerTag)
 			{
-				damageable.Damage(damage);
+				damageable.Damage(damage * damageMultiplier);
 			}
 		}
 	}
@@ -89,5 +92,10 @@ public class Blast : MonoBehaviour, IBullet
 	public string GetOwnerTag()
 	{
 		return ownerTag;
+	}
+
+	public void SetDamageMultiplier(float multiplier)
+	{
+		damageMultiplier = multiplier;
 	}
 }

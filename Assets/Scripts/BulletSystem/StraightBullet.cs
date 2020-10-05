@@ -11,6 +11,8 @@ public class StraightBullet : MonoBehaviour, IBullet
 	private const string ShotPath = "Audios/Sfx - Wall hit";
 	private static AudioClip shotClip = null;
 
+	float damageMultiplier = 1;
+
 	private string ownerTag;
 	// Start is called before the first frame update
 	void Start()
@@ -30,7 +32,7 @@ public class StraightBullet : MonoBehaviour, IBullet
 		
 		Destroy(gameObject);
 
-		return damage; // Damage this bullet does
+		return damage * damageMultiplier; // Damage this bullet does
 	}
 
 	public void SetOwnerTag(GameObject go)
@@ -44,6 +46,8 @@ public class StraightBullet : MonoBehaviour, IBullet
 		return ownerTag;
 	}
 
-
-
+	public void SetDamageMultiplier(float multiplier)
+	{
+		damageMultiplier = multiplier;
+	}
 }
