@@ -10,6 +10,8 @@ TagManager:
   - ShooterDisplayer
   - ShooterBackground
   - ScoreManager
+  - SpeedUICircle
+  - DamageUICircle
   layers:
   - Default
   - TransparentFX

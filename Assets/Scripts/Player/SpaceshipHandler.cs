@@ -16,6 +16,8 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] Sprite shotgunImage;
 	private UnityEngine.UI.Image _shooterDisplay;
 	private UnityEngine.UI.Image _shooterBackground;
+	private GameObject speedCanvas;
+	private GameObject damageCanvas;
 
 	// TODO: Convert this to an array/list of the currently held shooters
 	private List<IShooter> _shooters;
@@ -52,6 +54,8 @@ public class SpaceshipHandler : MonoBehaviour
 
 		_shooterDisplay = GameObject.FindGameObjectWithTag("ShooterDisplayer").GetComponent<UnityEngine.UI.Image>();
 		_shooterBackground = GameObject.FindGameObjectWithTag("ShooterBackground").GetComponent<UnityEngine.UI.Image>();
+		speedCanvas = GameObject.FindGameObjectWithTag("SpeedUICircle");
+		damageCanvas = GameObject.FindGameObjectWithTag("DamageUICircle");
 
 		_shooters = new List<IShooter>();
 		_shooters.Add(new SimpleShooter(transform.parent.gameObject));
@@ -64,6 +68,8 @@ public class SpaceshipHandler : MonoBehaviour
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
 		_halfSpriteRect.width /= 2;
 		_halfSpriteRect.height /= 2;
+
+		UpdatePowerupUI();
 	}
 
 	void FixedUpdate()
@@ -179,6 +185,56 @@ public class SpaceshipHandler : MonoBehaviour
 		else if (gunLevel == 2) _shooterBackground.color = Color.magenta;
 	}
 
+	void UpdatePowerupUI()
+	{
+		var damageGlow = damageCanvas.transform.GetChild(0);
+		var damageImage = damageCanvas.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+		var speedGlow = speedCanvas.transform.GetChild(0);
+		var speedImage = speedCanvas.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+
+		if (damageLevel == 0)
+		{
+			damageGlow.gameObject.SetActive(false);
+			damageImage.color = new Color(1, 1, 1, 0);
+		}
+		else if (damageLevel == 1)
+		{
+			damageGlow.gameObject.SetActive(false);
+			damageImage.color = new Color(1, 1, 1, 0.4f);
+		}
+		else if (damageLevel == 2)
+		{
+			damageGlow.gameObject.SetActive(false);
+			damageImage.color = new Color(1, 1, 1, 1f);
+		}
+		else if (damageLevel == 3)
+		{
+			damageGlow.gameObject.SetActive(true);
+			damageImage.color = new Color(1, 1, 1, 1f);
+		}
+
+		if (speedLevel == 0)
+		{
+			speedGlow.gameObject.SetActive(false);
+			speedImage.color = new Color(1, 1, 1, 0);
+		}
+		else if(speedLevel == 1)
+		{
+			speedGlow.gameObject.SetActive(false);
+			speedImage.color = new Color(1, 1, 1, 0.4f);
+		}
+		else if (speedLevel == 2)
+		{
+			speedGlow.gameObject.SetActive(false);
+			speedImage.color = new Color(1, 1, 1, 1f);
+		}
+		else if (speedLevel == 3)
+		{
+			speedGlow.gameObject.SetActive(true);
+			speedImage.color = new Color(1, 1, 1, 1f);
+		}
+	}
+
 	public void AddShotgunPowerUp()
 	{
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
@@ -187,6 +243,7 @@ public class SpaceshipHandler : MonoBehaviour
 	public void AddMoveSpeedPowerUp()
 	{
 		speedLevel = Mathf.Clamp(speedLevel + 1, 0, 3);
+		UpdatePowerupUI();
 	}
 	public void AddMachineGunPowerUp()
 	{
@@ -196,6 +253,7 @@ public class SpaceshipHandler : MonoBehaviour
 	public void AddDamagePowerUp()
 	{
 		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);
+		UpdatePowerupUI();
 	}
 	public void AddLazerPowerUp()
 	{
@@ -223,6 +281,7 @@ public class SpaceshipHandler : MonoBehaviour
 		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
 		ChangeActiveShooterTo(_activeShooter);
+		UpdatePowerupUI();
 	}
 
 	public void DisableCharacter()
@@ -236,6 +295,7 @@ public class SpaceshipHandler : MonoBehaviour
 		damageLevel = 1;
 		speedLevel = 0;
 		laserQuantity = 0;
+		UpdatePowerupUI();
 	}
 
 	public bool IsShootingLazer()
