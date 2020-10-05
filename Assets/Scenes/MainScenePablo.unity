@@ -4469,15 +4469,15 @@ MonoBehaviour:
   Items:
   - chance: 1
     item: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
-  - chance: 0
+  - chance: 1
     item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
-  - chance: 0
+  - chance: 1
     item: {fileID: 3615132546889114885, guid: db3825756dfddaa40aebf764fe638139, type: 3}
-  - chance: 0
+  - chance: 1
     item: {fileID: 2959310872201168297, guid: cfb2470d2e4dd1a4a86ffc762b015d99, type: 3}
-  - chance: 0
+  - chance: 1
     item: {fileID: 2959310872201168297, guid: 2a014d48e8965d64ab2df5d20e8b57f0, type: 3}
-  - chance: 0
+  - chance: 1
     item: {fileID: 6716530225024996041, guid: e1e923daea5427548a2b25e07512103a, type: 3}
   - chance: 1
     item: {fileID: 8471131685404251799, guid: d7410e9872116ce4a9f87867a7800762, type: 3}
