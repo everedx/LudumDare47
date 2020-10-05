@@ -9,6 +9,7 @@ public class SpaceshipHandler : MonoBehaviour
 {
 	[SerializeField] float MovementSpeed = 5;
 	[SerializeField] float lazerDuration = 3;
+	[SerializeField] float speedModifierPerLevel = 3;
 
 	// TODO: Convert this to an array/list of the currently held shooters
 	private List<IShooter> _shooters;
@@ -39,7 +40,7 @@ public class SpaceshipHandler : MonoBehaviour
 		lazerMax = 3;
 		gunLevel = 0;
 		damageLevel = 1;
-		speedLevel = 1;
+		speedLevel = 0;
 		laserQuantity = 0;
 
 		_shooters = new List<IShooter>();
@@ -61,7 +62,7 @@ public class SpaceshipHandler : MonoBehaviour
 	void FixedUpdate()
 	{
 
-		transform.Translate(movementX * currentSpeed * Time.fixedDeltaTime, movementY * currentSpeed * Time.fixedDeltaTime, 0, Space.Self);
+		transform.Translate(movementX * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, movementY * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, 0, Space.Self);
 
 	}
 
@@ -161,7 +162,7 @@ public class SpaceshipHandler : MonoBehaviour
 	}
 	public void AddMoveSpeedPowerUp()
 	{
-		speedLevel = Mathf.Clamp(speedLevel + 1, 1, 3);
+		speedLevel = Mathf.Clamp(speedLevel + 1, 0, 3);
 	}
 	public void AddMachineGunPowerUp()
 	{
@@ -195,7 +196,7 @@ public class SpaceshipHandler : MonoBehaviour
 		else
 			gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
 		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
-		speedLevel = Mathf.Clamp(speedLevel - 1, 1, 3);
+		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
 	}
 

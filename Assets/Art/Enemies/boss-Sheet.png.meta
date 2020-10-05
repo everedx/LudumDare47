@@ -113,6 +113,51 @@ TextureImporter:
   - first:
       213: 3781228646748719357
     second: boss-Sheet_17
+  - first:
+      213: -8413174733239483265
+    second: boss-Sheet_3
+  - first:
+      213: 5850969166160178314
+    second: boss-Sheet_4
+  - first:
+      213: -6908731649870219289
+    second: boss-Sheet_8
+  - first:
+      213: 6268832480407272273
+    second: boss-Sheet_9
+  - first:
+      213: 2442221805714422591
+    second: boss-Sheet_13
+  - first:
+      213: -2768955009891895700
+    second: boss-Sheet_14
+  - first:
+      213: 6004552268060651739
+    second: boss-Sheet_18
+  - first:
+      213: 261651105717455663
+    second: boss-Sheet_19
+  - first:
+      213: -8230762243170129087
+    second: boss-Sheet_25
+  - first:
+      213: 195105254591094951
+    second: boss-Sheet_26
+  - first:
+      213: 6815408556895706401
+    second: boss-Sheet_27
+  - first:
+      213: 8206700246684167695
+    second: boss-Sheet_28
+  - first:
+      213: 710233132507452565
+    second: boss-Sheet_29
+  - first:
+      213: 6971282545050155062
+    second: boss-Sheet_30
+  - first:
+      213: 1260403621346503377
+    second: boss-Sheet_31
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -200,183 +245,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: boss-Sheet_3
-      rect:
-        serializedVersion: 2
-        x: 306
-        y: 532
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 42948c8fcf556bc10800000000000000
-      internalID: 2068935623817316644
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 399
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cc391bce9bb11a60800000000000000
-      internalID: 7643096333311098050
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 266
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fa56471ae385f83f0800000000000000
-      internalID: -896400774803462737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_9
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 266
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6ec6be3798f477900800000000000000
-      internalID: 682101320343842022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_13
-      rect:
-        serializedVersion: 2
-        x: 102
-        y: 133
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f9fbeda12c8190ef0800000000000000
-      internalID: -141554691331932257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_14
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 133
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e520e8ae836dd0200800000000000000
-      internalID: 148009902714782302
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_18
-      rect:
-        serializedVersion: 2
-        x: 204
-        y: 0
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9e2aa690bc6ee9e30800000000000000
-      internalID: 4512297636382548713
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: boss-Sheet_19
-      rect:
-        serializedVersion: 2
-        x: 306
-        y: 0
-        width: 102.75
-        height: 133
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3889ca40efd6c0f30800000000000000
-      internalID: 4543127061877528707
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: boss-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 532
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -392,12 +269,12 @@ TextureImporter:
       name: boss-Sheet_1
       rect:
         serializedVersion: 2
-        x: 102
+        x: 103
         y: 532
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -413,12 +290,12 @@ TextureImporter:
       name: boss-Sheet_2
       rect:
         serializedVersion: 2
-        x: 204
+        x: 206
         y: 532
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -434,12 +311,12 @@ TextureImporter:
       name: boss-Sheet_5
       rect:
         serializedVersion: 2
-        x: 102
+        x: 103
         y: 399
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -455,12 +332,12 @@ TextureImporter:
       name: boss-Sheet_6
       rect:
         serializedVersion: 2
-        x: 204
+        x: 206
         y: 399
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -476,12 +353,12 @@ TextureImporter:
       name: boss-Sheet_7
       rect:
         serializedVersion: 2
-        x: 306
+        x: 309
         y: 399
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -497,12 +374,12 @@ TextureImporter:
       name: boss-Sheet_10
       rect:
         serializedVersion: 2
-        x: 204
+        x: 206
         y: 266
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -518,12 +395,12 @@ TextureImporter:
       name: boss-Sheet_11
       rect:
         serializedVersion: 2
-        x: 306
+        x: 309
         y: 266
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -541,10 +418,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 133
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -560,12 +437,12 @@ TextureImporter:
       name: boss-Sheet_15
       rect:
         serializedVersion: 2
-        x: 306
+        x: 309
         y: 133
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -583,10 +460,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -602,12 +479,12 @@ TextureImporter:
       name: boss-Sheet_17
       rect:
         serializedVersion: 2
-        x: 102
+        x: 103
         y: 0
-        width: 102.75
+        width: 100
         height: 133
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -615,6 +492,174 @@ TextureImporter:
       bones: []
       spriteID: df80dff9b6f997430800000000000000
       internalID: 3781228646748719357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 532
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7408ffa7266e3b80800000000000000
+      internalID: -8413174733239483265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 399
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8cadb4f471d23150800000000000000
+      internalID: 5850969166160178314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 266
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e7bcf02b214f10a0800000000000000
+      internalID: -6908731649870219289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 266
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b3b1f5ded5ff650800000000000000
+      internalID: 6268832480407272273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 133
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b3258fac384e120800000000000000
+      internalID: 2442221805714422591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 133
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c66fa5cc612b299d0800000000000000
+      internalID: -2768955009891895700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 0
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd0750d6974745350800000000000000
+      internalID: 6004552268060651739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: boss-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 0
+        width: 100
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2b806b5b4291a300800000000000000
+      internalID: 261651105717455663
       vertices: []
       indices: 
       edges: []
