@@ -272,7 +272,10 @@ public class BigBoss : EnemyDamageable, ILevelable
 	{
 
 		Instantiate(possibleLoot[Random.Range(0, possibleLoot.Count)],transform.position,Quaternion.identity);
-
+		if (lootObject != null)
+		{
+			Instantiate(lootObject, transform.position, Quaternion.identity);
+		}
 		Destroy(gameObject);
 		
 	}

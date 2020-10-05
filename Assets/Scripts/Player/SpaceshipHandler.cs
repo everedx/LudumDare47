@@ -290,6 +290,7 @@ public class SpaceshipHandler : MonoBehaviour
 	}
 	public void RestartCharacter()
 	{
+		ChangeActiveShooterTo(_shooters[0]);
 		characterEnabled = true;
 		gunLevel = 0;
 		damageLevel = 1;

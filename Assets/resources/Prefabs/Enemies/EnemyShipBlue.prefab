@@ -147,7 +147,7 @@ MonoBehaviour:
   initialHealth: 5.5
   damageOnCollision: 1
   psHit: {fileID: 1369826286705111654}
-  lootObject: {fileID: 0}
+  lootObject: {fileID: 8092216210861646451, guid: 84358a5dbaf5623458a04c929f75e972, type: 3}
   score: 50
   speed: 4
   shootingFrequency: 2
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.79
+  m_PointLightOuterRadius: 1.84
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5

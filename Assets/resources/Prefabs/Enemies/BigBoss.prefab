@@ -231,17 +231,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shaderObject: {fileID: -6465566751694194690, guid: 4a5745436f9a77b42a3d41bcdf0c679a, type: 3}
-  initialHealth: 200
+  initialHealth: 10
   damageOnCollision: 1
   psHit: {fileID: 1404694851085340581}
-  lootObject: {fileID: 0}
+  lootObject: {fileID: 8092216210861646451, guid: ea377f928cd0a1549b1163b6733c3e94, type: 3}
   score: 2000
   slowMaxSpeed: 4
   fastMaxSpeed: 8
   machinegunFreq: 0.5
-  machinegunLevel: 3
-  shotgunLevel: 3
-  laserLevel: 3
+  machinegunLevel: 1
+  shotgunLevel: 1
+  laserLevel: 1
   possibleLoot:
   - {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
   - {fileID: 8006397542618039955, guid: 24b73daea6936c445be021f1f4aec59d, type: 3}
