@@ -35,7 +35,7 @@ public class ItemGenerator : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-		int level = initialLevel + int.Parse(Math.Floor(Time.timeSinceLevelLoad / secondsPerLap).ToString());
+		int level = initialLevel + int.Parse(Math.Floor(Time.timeSinceLevelLoad / (secondsPerLap*2)).ToString());
 
 
         if (timer > timeToSpawnNewItem)
@@ -70,4 +70,5 @@ public class ItemGenerator : MonoBehaviour
 
 		return null;
 	}
+
 }

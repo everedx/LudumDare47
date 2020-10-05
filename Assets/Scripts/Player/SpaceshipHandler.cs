@@ -23,7 +23,7 @@ public class SpaceshipHandler : MonoBehaviour
 	private Animator anim;
 	private int lazerMax;
 	private float currentSpeed;
-
+	private bool characterEnabled;
 	
 
 	private int movementX;
@@ -34,6 +34,7 @@ public class SpaceshipHandler : MonoBehaviour
 
 	void Start()
 	{
+		characterEnabled = true;
 		timerLazer = 1000;
 		anim = GetComponent<Animator>();
 		currentSpeed = MovementSpeed;
@@ -61,8 +62,8 @@ public class SpaceshipHandler : MonoBehaviour
 
 	void FixedUpdate()
 	{
-
-		transform.Translate(movementX * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, movementY * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, 0, Space.Self);
+		if(characterEnabled)
+			transform.Translate(movementX * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, movementY * (currentSpeed + speedModifierPerLevel * speedLevel) * Time.fixedDeltaTime, 0, Space.Self);
 
 	}
 
@@ -115,41 +116,44 @@ public class SpaceshipHandler : MonoBehaviour
 		else if (screenPos.y + _halfSpriteRect.height > _mainCamera.pixelHeight && movementX < 0) movementX = 0;
 
 
-			
 
-		//Animation
-		if (movementX > 0)
-			anim.SetBool("GoingRight", true);
-		else
-			anim.SetBool("GoingRight", false);
-		if (movementX < 0)
-			anim.SetBool("GoingLeft", true);
-		else
-			anim.SetBool("GoingLeft", false);
-
-		if (timerLazer < lazerDuration)
+		if (characterEnabled)
 		{
-			currentSpeed = MovementSpeed / 3;
-			Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("EnemyLayer"), true);
-		}
-		else
-		{
-			Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("EnemyLayer"), false);
-			currentSpeed = MovementSpeed;
+			//Animation
+			if (movementX > 0)
+				anim.SetBool("GoingRight", true);
+			else
+				anim.SetBool("GoingRight", false);
+			if (movementX < 0)
+				anim.SetBool("GoingLeft", true);
+			else
+				anim.SetBool("GoingLeft", false);
 
-
-			//Primary attack
-			_activeShooter.FromCurrentShootingState(Input.GetKeyDown(space) || Input.GetMouseButtonDown(0), Input.GetKeyUp(space) || Input.GetMouseButtonUp(0), Input.GetKey(space) || Input.GetMouseButton(0), gameObject, Time.deltaTime, gunLevel, 2f);
-
-			//secondary attack
-			if ((Input.GetKeyDown(control) || Input.GetMouseButtonDown(1)) && laserQuantity >0)
+			if (timerLazer < lazerDuration)
 			{
-				timerLazer = 0;
-				laserQuantity--;
-				GetShooterOfType<BlastShooter>().FromCurrentShootingState(Input.GetKeyDown(control) || Input.GetMouseButtonDown(1), Input.GetKeyUp(control) || Input.GetMouseButtonUp(1), Input.GetKey(control) || Input.GetMouseButton(1), gameObject, Time.deltaTime, laserQuantity, lazerDuration);
+				currentSpeed = MovementSpeed / 3;
+				Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("EnemyLayer"), true);
 			}
-			
+			else
+			{
+				Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("EnemyLayer"), false);
+				currentSpeed = MovementSpeed;
+
+
+				//Primary attack
+				_activeShooter.FromCurrentShootingState(Input.GetKeyDown(space) || Input.GetMouseButtonDown(0), Input.GetKeyUp(space) || Input.GetMouseButtonUp(0), Input.GetKey(space) || Input.GetMouseButton(0), gameObject, Time.deltaTime, gunLevel, 2f);
+
+				//secondary attack
+				if ((Input.GetKeyDown(control) || Input.GetMouseButtonDown(1)) && laserQuantity > 0)
+				{
+					timerLazer = 0;
+					laserQuantity--;
+					GetShooterOfType<BlastShooter>().FromCurrentShootingState(Input.GetKeyDown(control) || Input.GetMouseButtonDown(1), Input.GetKeyUp(control) || Input.GetMouseButtonUp(1), Input.GetKey(control) || Input.GetMouseButton(1), gameObject, Time.deltaTime, laserQuantity, lazerDuration);
+				}
+
+			}
 		}
+		
 
 		
 	}
@@ -200,6 +204,10 @@ public class SpaceshipHandler : MonoBehaviour
 
 	}
 
+	public void DisableCharacter()
+	{
+		characterEnabled = false;
+	}
 
 	public bool IsShootingLazer()
 	{

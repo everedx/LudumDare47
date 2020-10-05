@@ -6,8 +6,10 @@ public class RoundParallax : MonoBehaviour
 {
 	[SerializeField] float speed;
 
-	// Start is called before the first frame update
-	void Start()
+    public float Speed { get => speed; set => speed = value; }
+
+    // Start is called before the first frame update
+    void Start()
     {
         
     }
@@ -17,4 +19,6 @@ public class RoundParallax : MonoBehaviour
     {
 		transform.Rotate(0, 0, speed * Time.deltaTime);
     }
+
+    
 }
