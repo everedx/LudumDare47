@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemGenerator : MonoBehaviour
 {
@@ -18,9 +19,15 @@ public class ItemGenerator : MonoBehaviour
 	[SerializeField] GeneratedItem[] Items;
     [SerializeField] float timeToSpawnNewItem = 2;
 	[SerializeField] int initialLevel = 1;
+	[SerializeField] int finalLapNumberSize = 36;
+	[SerializeField] float decreaseLapSizeEvery = 0.05f;
 	float timer;
 	int chanceSum;
 	float secondsPerLap;
+	int currentLevel;
+	bool updatingLap;
+	Text lapDisplayer;
+	float lastChangedFontSize;
 
     // Start is called before the first frame update
     void Start()
@@ -29,14 +36,19 @@ public class ItemGenerator : MonoBehaviour
 		chanceSum = Items.Sum(i => i.chance);
 		timer = timeToSpawnNewItem; // Spawn one at the beginning and wait... good for testing items
 		secondsPerLap = GameObject.FindGameObjectWithTag("Follower").GetComponent<LineFollower>().GetSecondsPerLap();
+		lapDisplayer = GameObject.FindGameObjectWithTag("LapDisplayer").GetComponent<Text>();
+		currentLevel = initialLevel;
     }
 
     // Update is called once per frame
     void Update()
     {
         timer += Time.deltaTime;
-		int level = initialLevel + int.Parse(Math.Floor(Time.timeSinceLevelLoad / secondsPerLap).ToString());
 
+		var prevLevel = currentLevel;
+		currentLevel = initialLevel + int.Parse(Math.Floor(Time.timeSinceLevelLoad / secondsPerLap).ToString());
+		if (prevLevel != currentLevel) updatingLap = true;
+		UpdateLap();
 
         if (timer > timeToSpawnNewItem)
         {
@@ -48,13 +60,32 @@ public class ItemGenerator : MonoBehaviour
 
 			var newItem = GetObjectForVal(val);
 			var levelable = newItem.GetComponent<ILevelable>();
-			if (levelable != null) levelable.SetLevel(level);
+			if (levelable != null) levelable.SetLevel(currentLevel);
 			Instantiate(newItem, spawnPosition, Quaternion.identity);
 
             timer = 0;
         }
 
     }
+
+	void UpdateLap()
+	{
+		if (!updatingLap) return;
+
+		if (lapDisplayer.fontSize == finalLapNumberSize && int.Parse(lapDisplayer.text) == currentLevel - 1)
+		{
+			lapDisplayer.text = currentLevel.ToString();
+			lapDisplayer.fontSize = 3 * finalLapNumberSize;
+			lastChangedFontSize = Time.time;
+		}
+		else if (lapDisplayer.fontSize == finalLapNumberSize && int.Parse(lapDisplayer.text) == currentLevel)
+		{
+			updatingLap = false;
+			return;
+		}
+
+		if (Time.time - lastChangedFontSize > decreaseLapSizeEvery) lapDisplayer.fontSize--;
+	}
 
 	GameObject GetObjectForVal(int val)
 	{
