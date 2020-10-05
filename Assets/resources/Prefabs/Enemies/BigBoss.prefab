@@ -241,6 +241,10 @@ MonoBehaviour:
   machinegunLevel: 3
   shotgunLevel: 3
   laserLevel: 3
+  possibleLoot:
+  - {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
+  - {fileID: 8006397542618039955, guid: 24b73daea6936c445be021f1f4aec59d, type: 3}
+  - {fileID: 8006397542618039955, guid: aa782aaf832dadd42b5e4891e3f7d4c5, type: 3}
 --- !u!60 &2922599264714074792
 PolygonCollider2D:
   m_ObjectHideFlags: 0

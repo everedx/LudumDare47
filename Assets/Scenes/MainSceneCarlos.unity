@@ -4565,7 +4565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Items:
-  - chance: 1
+  - chance: 50
     item: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
   - chance: 1
     item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}

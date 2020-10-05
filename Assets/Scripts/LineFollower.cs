@@ -79,12 +79,12 @@ public class LineFollower : MonoBehaviour
 				case DeathStates.Rewinding:
 					
 					Rewind();
-					Debug.Log(distanceTravelled);
+					
 					if (distanceTravelled >= 0)
 						dState = DeathStates.LoadingScene;
 					break;
 				case DeathStates.LoadingScene:
-					Debug.Log("Starting");
+					
 					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 					break;
 			}
@@ -129,7 +129,6 @@ public class LineFollower : MonoBehaviour
 		deathSequence = true;
 		dState = DeathStates.Stopping;
 		timer = 0;
-		Debug.Log("Stopping");
 	}
 
 }
