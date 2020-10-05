@@ -72,9 +72,9 @@ public class BigBoss : EnemyDamageable, ILevelable
 			if (child.name == "Right") right = child;
 		}
 
-		shotgun = new ShotgunShooter(center.gameObject);
-		machinegunLeft = new MachineGunShooter(left.gameObject);
-		machinegunRight = new MachineGunShooter(right.gameObject);
+		shotgun = new ShotgunShooter(transformParent.gameObject);
+		machinegunLeft = new MachineGunShooter(transformParent.gameObject);
+		machinegunRight = new MachineGunShooter(transformParent.gameObject);
 		blast = new BlastShooter(center.gameObject);
 	}
 
