@@ -21,6 +21,8 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] private AudioSource speedClip;
 	[SerializeField] private AudioSource laserClip;
 
+	[SerializeField] private GameObject pauseMenu;
+
 	private UnityEngine.UI.Image _shooterDisplay;
 	private UnityEngine.UI.Image _shooterBackground;
 	private GameObject speedCanvas;
@@ -59,6 +61,7 @@ public class SpaceshipHandler : MonoBehaviour
 		damageLevel = 0;
 		speedLevel = 0;
 		laserQuantity = 0;
+		Time.timeScale = 1;
 
 		_shooterDisplay = GameObject.FindGameObjectWithTag("ShooterDisplayer").GetComponent<UnityEngine.UI.Image>();
 		_shooterBackground = GameObject.FindGameObjectWithTag("ShooterBackground").GetComponent<UnityEngine.UI.Image>();
@@ -109,10 +112,12 @@ public class SpaceshipHandler : MonoBehaviour
 		if (Input.GetKeyDown(escape) && Time.timeScale == 1)
 		{
 			Time.timeScale = 0;
+			pauseMenu.SetActive(true);
 			Camera.main.GetComponent<MusicManager>().PauseMusic();
 		}
 		else if (Input.GetKeyDown(escape) && Time.timeScale == 0)
 		{
+			pauseMenu.SetActive(false);
 			Time.timeScale = 1;
 			Camera.main.GetComponent<MusicManager>().ResumeMusic();
 		} 
@@ -286,7 +291,7 @@ public class SpaceshipHandler : MonoBehaviour
 			gunLevel = 0;
 		else
 			gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
-		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
+		damageLevel = Mathf.Clamp(damageLevel - 1, 0, 3);
 		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
 		ChangeActiveShooterTo(_activeShooter);
@@ -311,6 +316,13 @@ public class SpaceshipHandler : MonoBehaviour
 	public bool IsShootingLazer()
 	{
 		return timerLazer < lazerDuration;
+	}
+
+	public void ResumeGame()
+	{
+		pauseMenu.SetActive(false);
+		Time.timeScale = 1;
+		Camera.main.GetComponent<MusicManager>().ResumeMusic();
 	}
 
 }
