@@ -151,7 +151,7 @@ MonoBehaviour:
   score: 50
   speed: 4
   shootingFrequency: 2
-  chanceOfSpawningBehind: 0.2
+  chanceOfSpawningBehind: 0.5
   shotgunLevel: 3
 --- !u!50 &6593902227247593960
 Rigidbody2D:
