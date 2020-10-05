@@ -1,12 +1,34 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: e08bb8e35ab3c7c409183ee7756d485b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -991615594838480343
+    second: Bullet - Shotgun-Sheet_0
+  - first:
+      213: -2256655704364658177
+    second: Bullet - Shotgun-Sheet_1
+  - first:
+      213: -5306222302103046639
+    second: Bullet - Shotgun-Sheet_2
+  - first:
+      213: -7894566696498401342
+    second: Bullet - Shotgun-Sheet_3
+=======
 guid: 5d5cde621949b4b409833395ef3be191
 TextureImporter:
   internalIDToNameTable: []
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
     mipMapMode: 0
+<<<<<<< HEAD
+    enableMipMap: 0
+=======
     enableMipMap: 1
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -32,6 +54,18 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
+<<<<<<< HEAD
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+=======
     filterMode: -1
     aniso: -1
     mipBias: -100
@@ -42,6 +76,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 0
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -50,9 +85,15 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
+<<<<<<< HEAD
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+=======
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
   textureShape: 1
   singleChannelComponent: 0
   maxTextureSizeSet: 0
@@ -66,7 +107,35 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
+<<<<<<< HEAD
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+=======
     textureCompression: 1
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -75,11 +144,103 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
+<<<<<<< HEAD
+    sprites:
+    - serializedVersion: 2
+      name: Bullet - Shotgun-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 44
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92a2aebced21d32f0800000000000000
+      internalID: -991615594838480343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet - Shotgun-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 44
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff15cf8d79fbea0e0800000000000000
+      internalID: -2256655704364658177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet - Shotgun-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11674e70ee28c56b0800000000000000
+      internalID: -5306222302103046639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet - Shotgun-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 0
+        width: 45
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2cf659faa6dd07290800000000000000
+      internalID: -7894566696498401342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c24c7ea68a9cfff44bbd42eac8281af9
+=======
     sprites: []
     outline: []
     physicsShape: []
     bones: []
     spriteID: 
+>>>>>>> 1a0833c78397fe1c3f9775a6c9dd97718fbe1b24
     internalID: 0
     vertices: []
     indices: 

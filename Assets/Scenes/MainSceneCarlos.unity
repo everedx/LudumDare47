@@ -4468,7 +4468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - chance: 1
-    item: {fileID: 8006397542618039955, guid: d499bf9e0571e9a45bbd3251136fca07, type: 3}
+    item: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
   timeToSpawnNewItem: 3
   initialLevel: 1
 --- !u!4 &1807094408

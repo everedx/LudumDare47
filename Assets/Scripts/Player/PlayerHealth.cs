@@ -17,7 +17,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	public GameObject HealthRing;
     public GameObject ShieldRing;
 
-
+ 
     private float currentHealth;
     private float invulnerabilityTimer;
     private Material playerMaterial;
@@ -31,6 +31,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	// Start is called before the first frame update
 	void Start()
     {
+        
         currentHealth = initialHealth;
         playerMaterial = GetComponent<SpriteRenderer>().material;
         invulnerabilityTimer = 50000;
@@ -91,7 +92,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 
         currentHealth= Mathf.Clamp(currentHealth - amount, 0, initialHealth);
         if (currentHealth == 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        {
+            transform.parent.GetComponent<LineFollower>().StartDeathSequence();
+            GetComponent<SpaceshipHandler>().DisableCharacter();
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+           
     }
 
 	public void AddShield(GameObject shieldPrefab, ShieldPowerup powerup)
