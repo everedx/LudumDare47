@@ -22,6 +22,7 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] private AudioSource laserClip;
 
 	[SerializeField] private GameObject pauseMenu;
+	[SerializeField] private GameObject bestScoreMenu;
 
 	private UnityEngine.UI.Image _shooterDisplay;
 	private UnityEngine.UI.Image _shooterBackground;
@@ -109,13 +110,13 @@ public class SpaceshipHandler : MonoBehaviour
 
 
 
-		if (Input.GetKeyDown(escape) && Time.timeScale == 1)
+		if (Input.GetKeyDown(escape) && Time.timeScale == 1 && !bestScoreMenu.activeSelf)
 		{
 			Time.timeScale = 0;
 			pauseMenu.SetActive(true);
 			Camera.main.GetComponent<MusicManager>().PauseMusic();
 		}
-		else if (Input.GetKeyDown(escape) && Time.timeScale == 0)
+		else if (Input.GetKeyDown(escape) && Time.timeScale == 0 && !bestScoreMenu.activeSelf)
 		{
 			pauseMenu.SetActive(false);
 			Time.timeScale = 1;

@@ -8,7 +8,9 @@ public class ScoreManager : MonoBehaviour
 	private TextMeshProUGUI text;
 	int score = 0;
 
-    void Start()
+	public int Score { get => score;}
+
+	void Start()
     {
 		text = GetComponent<TextMeshProUGUI>();
     }

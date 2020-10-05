@@ -15,6 +15,7 @@ public class LineFollower : MonoBehaviour
 	[SerializeField] float rewindTime = 5f;
 	[SerializeField] float stoppingTime = 2f;
 	[SerializeField] AudioClip rewindClip;
+	[SerializeField] GameObject canvasBestScore;
 
 	private List<RoundParallax> parallaxList;
 	private List<float> parallaxSpeedList;
@@ -75,10 +76,20 @@ public class LineFollower : MonoBehaviour
 						par.Speed = Mathf.Lerp(par.Speed, 0,timer/stoppingTime );
 					if (speed == 0)
 					{
-						dState = DeathStates.Rewinding;
-						rewindSpeed = distanceTravelled / rewindTime;
-						timer = 0;
-						musicManager.PlaySFX(rewindClip);
+						if (GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().Score > GameManager.instance.GetLowestBestScore())
+						{
+							canvasBestScore.GetComponent<BestScoreMenuManager>().LoadData();
+							canvasBestScore.SetActive(true);
+							Time.timeScale = 0;
+						}
+						else
+						{
+							dState = DeathStates.Rewinding;
+							rewindSpeed = distanceTravelled / rewindTime;
+							timer = 0;
+							musicManager.PlaySFX(rewindClip);
+						}
+						
 				
 					}
 					break;
@@ -147,5 +158,17 @@ public class LineFollower : MonoBehaviour
 		dState = DeathStates.Stopping;
 		timer = 0;
 	}
+
+	public void ContinueSequence()
+	{
+		canvasBestScore.SetActive(false);
+		dState = DeathStates.Rewinding;
+		Time.timeScale = 1;
+		rewindSpeed = distanceTravelled / rewindTime;
+		timer = 0;
+		musicManager.PlaySFX(rewindClip);
+	}
+
+
 
 }

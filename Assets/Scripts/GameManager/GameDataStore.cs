@@ -27,7 +27,7 @@ public class GameDataStore : GameDataStoreBase
         scores.Add(new ScoreRecord() { name = "LLL", score = 100 });
     }
 
-    public void DeleteDeleteLastRecord()
+    public void DeleteLastRecord()
     {
         ScoreRecord score = null;
         int minScore = int.MaxValue;
@@ -58,6 +58,18 @@ public class GameDataStore : GameDataStoreBase
                 maxScore = record.score;
         }
         return maxScore;
+    }
+
+    public int GetLowestBestMark()
+    {
+        //return bestMark;
+        int minScore = int.MaxValue; ;
+        foreach (ScoreRecord record in scores)
+        {
+            if (record.score < minScore)
+                minScore = record.score;
+        }
+        return minScore;
     }
 
 

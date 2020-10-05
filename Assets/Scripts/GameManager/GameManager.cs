@@ -21,10 +21,14 @@ public class GameManager : GameManagerBase<GameManager, GameDataStore>
     {
         return m_DataStore.GetBestMark();
     }
+    public int GetLowestBestScore()
+    {
+        return m_DataStore.GetLowestBestMark();
+    }
 
     public void AddNewRecord(ScoreRecord score)
     {
-        m_DataStore.DeleteDeleteLastRecord();
+        m_DataStore.DeleteLastRecord();
         m_DataStore.AddRecord(score);
         SaveData();
     }
@@ -51,7 +55,7 @@ public class GameManager : GameManagerBase<GameManager, GameDataStore>
             m_DataStore.scores.Add(new ScoreRecord() { name = "JJJ", score = 100 });
             m_DataStore.scores.Add(new ScoreRecord() { name = "LLL", score = 100 });
         }
-       
-
     }
+
+
 }
