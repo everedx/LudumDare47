@@ -15,7 +15,9 @@ public class LineFollower : MonoBehaviour
 	[SerializeField] float rewindTime = 5f;
 	[SerializeField] float stoppingTime = 2f;
 	[SerializeField] AudioClip rewindClip;
+	[SerializeField] AudioClip bestScoreClip;
 	[SerializeField] GameObject canvasBestScore;
+	
 
 	private List<RoundParallax> parallaxList;
 	private List<float> parallaxSpeedList;
@@ -152,11 +154,16 @@ public class LineFollower : MonoBehaviour
 
 	public void StartDeathSequence()
 	{
+		if (GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().Score > GameManager.instance.GetLowestBestScore())
+		{
+			musicManager.PlaySFX(bestScoreClip);
+		}
 		deathSequence = true;
 		GameObject.FindObjectOfType<ItemGenerator>().GetComponent<ItemGenerator>().StopGeneration();
 		GameObject.FindObjectOfType<ObjectDestroyer>().GetComponent<ObjectDestroyer>().DestroyScene();
 		dState = DeathStates.Stopping;
 		timer = 0;
+
 	}
 
 	public void ContinueSequence()
