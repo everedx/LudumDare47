@@ -6241,7 +6241,7 @@ MonoBehaviour:
     item: {fileID: 8006397542618039955, guid: f5d1ab213de17fe4f8965e1a7faf5313, type: 3}
   - chance: 0
     item: {fileID: 8006397542618039955, guid: aa782aaf832dadd42b5e4891e3f7d4c5, type: 3}
-  timeToSpawnNewItem: 2
+  timeToSpawnNewItem: 2.2
   initialLevel: 1
   finalLapNumberSize: 36
   decreaseLapSizeEvery: 0.05
