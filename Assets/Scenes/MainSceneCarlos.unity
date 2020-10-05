@@ -1059,6 +1059,7 @@ MonoBehaviour:
   glitchDamageAmountEnd: 0
   maxShieldHealth: 3
   HealthRing: {fileID: 1846939350}
+  ShieldRing: {fileID: 1986853921}
 --- !u!114 &288852792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4391,7 +4392,7 @@ RectTransform:
   m_Children:
   - {fileID: 111331899}
   m_Father: {fileID: 1846939351}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4467,8 +4468,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Items:
   - chance: 1
-    item: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
-  timeToSpawnNewItem: 400
+    item: {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
+  - chance: 1
+    item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
+  timeToSpawnNewItem: 3
   initialLevel: 1
 --- !u!4 &1807094408
 Transform:
@@ -4506,6 +4509,10 @@ PrefabInstance:
     - target: {fileID: 2012280405478788778, guid: 4da7be4d7d1d8aa4998758aabe722c84, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 2012280405478788781, guid: 4da7be4d7d1d8aa4998758aabe722c84, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2012280405611543010, guid: 4da7be4d7d1d8aa4998758aabe722c84, type: 3}
       propertyPath: m_SizeDelta.x
@@ -4657,6 +4664,11 @@ GameObject:
 --- !u!224 &1846939351 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2012280406981941330, guid: 4da7be4d7d1d8aa4998758aabe722c84, type: 3}
+  m_PrefabInstance: {fileID: 1846939349}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1986853921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6433941479293914689, guid: 4da7be4d7d1d8aa4998758aabe722c84, type: 3}
   m_PrefabInstance: {fileID: 1846939349}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2064260917

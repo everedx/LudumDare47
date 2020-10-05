@@ -15,13 +15,15 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float maxShieldHealth = 3f;
 
 	public GameObject HealthRing;
+    public GameObject ShieldRing;
 
 
     private float currentHealth;
     private float invulnerabilityTimer;
     private Material playerMaterial;
 	private Image healthRing;
-	private float currentDisplayedHealth; // Not the actual health, only used to display smoothed health changes
+    private Image shieldRing;
+    private float currentDisplayedHealth; // Not the actual health, only used to display smoothed health changes
 	private float currentShieldHealth;
 	private GameObject _shield;
     private SpaceshipHandler ship;
@@ -34,6 +36,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         invulnerabilityTimer = 50000;
         ship = GetComponent<SpaceshipHandler>();
 		healthRing = HealthRing.GetComponent<Image>();
+        shieldRing = ShieldRing.GetComponent<Image>();
     }
 
     private void Update()
@@ -54,6 +57,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         playerMaterial.SetFloat("_FlickerFreq", Mathf.Lerp(flickerDamageAmount, flickerDamageAmountEnd, invulnerabilityTimer / invulTimeAfterHit));
 
 		healthRing.fillAmount = Mathf.Lerp(healthRing.fillAmount, currentHealth / initialHealth, 0.1f);
+        shieldRing.fillAmount = Mathf.Lerp(shieldRing.fillAmount, currentShieldHealth / maxShieldHealth, 0.1f);
     }
 
 
