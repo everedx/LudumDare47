@@ -11,6 +11,12 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] float lazerDuration = 3;
 	[SerializeField] float speedModifierPerLevel = 3;
 
+	[SerializeField] Sprite gunImage;
+	[SerializeField] Sprite machinegunImage;
+	[SerializeField] Sprite shotgunImage;
+	private UnityEngine.UI.Image _shooterDisplay;
+	private UnityEngine.UI.Image _shooterBackground;
+
 	// TODO: Convert this to an array/list of the currently held shooters
 	private List<IShooter> _shooters;
 	private IShooter _activeShooter;
@@ -44,20 +50,20 @@ public class SpaceshipHandler : MonoBehaviour
 		speedLevel = 0;
 		laserQuantity = 0;
 
+		_shooterDisplay = GameObject.FindGameObjectWithTag("ShooterDisplayer").GetComponent<UnityEngine.UI.Image>();
+		_shooterBackground = GameObject.FindGameObjectWithTag("ShooterBackground").GetComponent<UnityEngine.UI.Image>();
+
 		_shooters = new List<IShooter>();
 		_shooters.Add(new SimpleShooter(transform.parent.gameObject));
 		_shooters.Add(new ShotgunShooter(transform.parent.gameObject));
 		_shooters.Add(new BlastShooter(gameObject));// Use the ship instead of the parent in this case because the blast should follow the ship
 		_shooters.Add(new MachineGunShooter(transform.parent.gameObject));
-		_activeShooter = _shooters[0];
+		ChangeActiveShooterTo(_shooters[0]);
 
 		_mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 		_halfSpriteRect = new Rect(GetComponent<SpriteRenderer>().sprite.rect);
 		_halfSpriteRect.width /= 2;
 		_halfSpriteRect.height /= 2;
-
-
-
 	}
 
 	void FixedUpdate()
@@ -158,11 +164,25 @@ public class SpaceshipHandler : MonoBehaviour
 		
 	}
 
+	void ChangeActiveShooterTo(IShooter shooter)
+	{
+		_activeShooter = shooter;
+		if (_activeShooter is ShotgunShooter)
+			_shooterDisplay.sprite = shotgunImage;
+		else if (_activeShooter is MachineGunShooter)
+			_shooterDisplay.sprite = machinegunImage;
+		else if (_activeShooter is SimpleShooter)
+			_shooterDisplay.sprite = gunImage;
+
+		if (gunLevel == 0) _shooterBackground.color = Color.yellow;
+		else if (gunLevel == 1) _shooterBackground.color = Color.cyan;
+		else if (gunLevel == 2) _shooterBackground.color = Color.magenta;
+	}
 
 	public void AddShotgunPowerUp()
 	{
-		_activeShooter = GetShooterOfType<ShotgunShooter>();
-		gunLevel = Mathf.Clamp(gunLevel+1,1,3);
+		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		ChangeActiveShooterTo(GetShooterOfType<ShotgunShooter>());
 	}
 	public void AddMoveSpeedPowerUp()
 	{
@@ -170,8 +190,8 @@ public class SpaceshipHandler : MonoBehaviour
 	}
 	public void AddMachineGunPowerUp()
 	{
-		_activeShooter = GetShooterOfType<MachineGunShooter>();
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		ChangeActiveShooterTo(GetShooterOfType<MachineGunShooter>());
 	}
 	public void AddDamagePowerUp()
 	{
@@ -202,6 +222,7 @@ public class SpaceshipHandler : MonoBehaviour
 		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
 		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
+		ChangeActiveShooterTo(_activeShooter);
 	}
 
 	public void DisableCharacter()
