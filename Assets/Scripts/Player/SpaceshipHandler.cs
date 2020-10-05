@@ -286,7 +286,7 @@ public class SpaceshipHandler : MonoBehaviour
 			gunLevel = 0;
 		else
 			gunLevel = Mathf.Clamp(gunLevel - 1, 1, 3);
-		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
+		damageLevel = Mathf.Clamp(damageLevel - 1, 0, 3);
 		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
 		ChangeActiveShooterTo(_activeShooter);
