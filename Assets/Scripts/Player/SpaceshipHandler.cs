@@ -18,6 +18,7 @@ public class SpaceshipHandler : MonoBehaviour
 	private UnityEngine.UI.Image _shooterBackground;
 	private GameObject speedCanvas;
 	private GameObject damageCanvas;
+	private GameObject laserCanvas;
 
 	// TODO: Convert this to an array/list of the currently held shooters
 	private List<IShooter> _shooters;
@@ -56,6 +57,7 @@ public class SpaceshipHandler : MonoBehaviour
 		_shooterBackground = GameObject.FindGameObjectWithTag("ShooterBackground").GetComponent<UnityEngine.UI.Image>();
 		speedCanvas = GameObject.FindGameObjectWithTag("SpeedUICircle");
 		damageCanvas = GameObject.FindGameObjectWithTag("DamageUICircle");
+		laserCanvas = GameObject.FindGameObjectWithTag("LaserUICircle");
 
 		_shooters = new List<IShooter>();
 		_shooters.Add(new SimpleShooter(transform.parent.gameObject));
@@ -160,6 +162,7 @@ public class SpaceshipHandler : MonoBehaviour
 				{
 					timerLazer = 0;
 					laserQuantity--;
+					UpdatePowerupUI();
 					GetShooterOfType<BlastShooter>().FromCurrentShootingState(Input.GetKeyDown(control) || Input.GetMouseButtonDown(1), Input.GetKeyUp(control) || Input.GetMouseButtonUp(1), Input.GetKey(control) || Input.GetMouseButton(1), gameObject, Time.deltaTime, laserQuantity, lazerDuration);
 				}
 
@@ -191,47 +194,35 @@ public class SpaceshipHandler : MonoBehaviour
 		var damageImage = damageCanvas.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
 		var speedGlow = speedCanvas.transform.GetChild(0);
 		var speedImage = speedCanvas.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
+		var laserGlow = laserCanvas.transform.GetChild(0);
+		var laserImage = laserCanvas.transform.GetChild(1).GetComponent<UnityEngine.UI.Image>();
 
-		if (damageLevel == 0)
-		{
-			damageGlow.gameObject.SetActive(false);
-			damageImage.color = new Color(1, 1, 1, 0);
-		}
-		else if (damageLevel == 1)
-		{
-			damageGlow.gameObject.SetActive(false);
-			damageImage.color = new Color(1, 1, 1, 0.4f);
-		}
-		else if (damageLevel == 2)
-		{
-			damageGlow.gameObject.SetActive(false);
-			damageImage.color = new Color(1, 1, 1, 1f);
-		}
-		else if (damageLevel == 3)
-		{
-			damageGlow.gameObject.SetActive(true);
-			damageImage.color = new Color(1, 1, 1, 1f);
-		}
+		SetUIValuesFor(damageGlow, damageImage, damageLevel);
+		SetUIValuesFor(speedGlow, speedImage, speedLevel);
+		SetUIValuesFor(laserGlow, laserImage, laserQuantity);
+	}
 
-		if (speedLevel == 0)
+	void SetUIValuesFor(Transform glow, UnityEngine.UI.Image orb, int level)
+	{
+		if (level == 0)
 		{
-			speedGlow.gameObject.SetActive(false);
-			speedImage.color = new Color(1, 1, 1, 0);
+			glow.gameObject.SetActive(false);
+			orb.color = new Color(1, 1, 1, 0);
 		}
-		else if(speedLevel == 1)
+		else if (level == 1)
 		{
-			speedGlow.gameObject.SetActive(false);
-			speedImage.color = new Color(1, 1, 1, 0.4f);
+			glow.gameObject.SetActive(false);
+			orb.color = new Color(1, 1, 1, 0.4f);
 		}
-		else if (speedLevel == 2)
+		else if (level == 2)
 		{
-			speedGlow.gameObject.SetActive(false);
-			speedImage.color = new Color(1, 1, 1, 1f);
+			glow.gameObject.SetActive(false);
+			orb.color = new Color(1, 1, 1, 1f);
 		}
-		else if (speedLevel == 3)
+		else if (level == 3)
 		{
-			speedGlow.gameObject.SetActive(true);
-			speedImage.color = new Color(1, 1, 1, 1f);
+			glow.gameObject.SetActive(true);
+			orb.color = new Color(1, 1, 1, 1f);
 		}
 	}
 
@@ -258,6 +249,7 @@ public class SpaceshipHandler : MonoBehaviour
 	public void AddLazerPowerUp()
 	{
 		laserQuantity = Mathf.Clamp(laserQuantity + 1, 0, lazerMax);
+		UpdatePowerupUI();
 	}
 
 	private T GetShooterOfType<T>()

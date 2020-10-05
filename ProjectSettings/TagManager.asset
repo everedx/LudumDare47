@@ -12,6 +12,7 @@ TagManager:
   - ScoreManager
   - SpeedUICircle
   - DamageUICircle
+  - LaserUICircle
   layers:
   - Default
   - TransparentFX
