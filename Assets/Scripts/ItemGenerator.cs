@@ -28,10 +28,14 @@ public class ItemGenerator : MonoBehaviour
 	bool updatingLap;
 	Text lapDisplayer;
 	float lastChangedFontSize;
+	float levelTimer;
+	bool generationEnabled;
 
     // Start is called before the first frame update
     void Start()
     {
+		generationEnabled = true;
+		levelTimer = 0;
         timer = 0;
 		chanceSum = Items.Sum(i => i.chance);
 		timer = timeToSpawnNewItem; // Spawn one at the beginning and wait... good for testing items
@@ -44,9 +48,9 @@ public class ItemGenerator : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-
+		levelTimer += Time.deltaTime;
 		var prevLevel = currentLevel;
-		currentLevel = initialLevel + int.Parse(Math.Floor(Time.timeSinceLevelLoad / secondsPerLap).ToString());
+		currentLevel = initialLevel + int.Parse(Math.Floor(levelTimer / secondsPerLap).ToString());
 		if (prevLevel != currentLevel) updatingLap = true;
 		UpdateLap();
 
@@ -61,7 +65,9 @@ public class ItemGenerator : MonoBehaviour
 			var newItem = GetObjectForVal(val);
 			var levelable = newItem.GetComponent<ILevelable>();
 			if (levelable != null) levelable.SetLevel(currentLevel);
-			Instantiate(newItem, spawnPosition, Quaternion.identity);
+
+			if(generationEnabled)
+				Instantiate(newItem, spawnPosition, Quaternion.identity);
 
             timer = 0;
         }
@@ -100,6 +106,17 @@ public class ItemGenerator : MonoBehaviour
 		}
 
 		return null;
+	}
+
+	public void StopGeneration()
+	{
+		generationEnabled = false;
+	}
+
+	public void RestartLevelDifficulty()
+	{
+		generationEnabled = true;
+		levelTimer = 0;
 	}
 
 }

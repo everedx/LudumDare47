@@ -106,4 +106,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         _shield = Instantiate(shieldPrefab, transform);
 		currentShieldHealth = Mathf.Clamp(currentShieldHealth+ powerup.shieldHealth,0,maxShieldHealth);
 	}
+
+    public void RestartCharacter()
+    {
+        currentShieldHealth = 0;
+        currentHealth = initialHealth;
+        GetComponent<SpaceshipHandler>().RestartCharacter();
+
+    }
 }

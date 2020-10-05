@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Follower
   - LapDisplayer
+  - PowerUp
   - ShooterDisplayer
   - ShooterBackground
   - ScoreManager
