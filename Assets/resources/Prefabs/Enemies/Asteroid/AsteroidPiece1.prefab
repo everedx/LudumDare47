@@ -5096,6 +5096,7 @@ MonoBehaviour:
   damageOnCollision: 1
   psHit: {fileID: 8231991500621017445}
   lootObject: {fileID: 0}
+  score: 1
   piecesOnDestroyed: 0
   movementSpeed: 10
   AsteroidPieces: []

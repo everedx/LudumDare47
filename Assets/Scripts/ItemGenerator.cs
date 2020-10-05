@@ -91,6 +91,12 @@ public class ItemGenerator : MonoBehaviour
 		}
 
 		if (Time.time - lastChangedFontSize > decreaseLapSizeEvery) lapDisplayer.fontSize--;
+		if(lapDisplayer.fontSize <= finalLapNumberSize)
+		{
+			updatingLap = false;
+			lapDisplayer.fontSize = finalLapNumberSize;
+			lapDisplayer.text = currentLevel.ToString();
+		}
 	}
 
 	GameObject GetObjectForVal(int val)
@@ -117,6 +123,8 @@ public class ItemGenerator : MonoBehaviour
 	{
 		generationEnabled = true;
 		levelTimer = 0;
+		updatingLap = true;
+		currentLevel = 1;
 	}
 
 }

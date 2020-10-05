@@ -9,14 +9,17 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     [SerializeField] float damageOnCollision = 1;
     [SerializeField] ParticleSystem psHit;
     [SerializeField] GameObject lootObject;
+	[SerializeField] int score;
 
-    protected float currentHealth;
+	protected float currentHealth;
     protected Rigidbody2D rigBody;
     protected BoxCollider2D boxCollider2D;
     protected SpriteRenderer sr;
     private Material mat;
     protected GameObject playerObject;
     protected float initializationTime;
+
+	private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     protected virtual void Start()
@@ -29,7 +32,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         sr = GetComponent<SpriteRenderer>();
         sr.material = new Material(shaderObject);
         mat = sr.material;
-        
+		scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -58,6 +61,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
+				scoreManager.AddScore(score);
 				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }

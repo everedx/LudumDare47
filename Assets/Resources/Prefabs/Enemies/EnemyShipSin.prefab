@@ -104,7 +104,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 4, y: 4}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -147,8 +147,11 @@ MonoBehaviour:
   initialHealth: 2
   damageOnCollision: 1
   psHit: {fileID: 2959310872925571458}
+  lootObject: {fileID: 0}
+  score: 10
   frequency: 4
   magnitudeWaveMovement: 15
+  speed: 2
 --- !u!50 &-1078309385720158632
 Rigidbody2D:
   serializedVersion: 4

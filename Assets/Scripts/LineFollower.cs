@@ -93,6 +93,7 @@ public class LineFollower : MonoBehaviour
 					musicManager.RestartSynchronization();
 					GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().RestartCharacter();
 					GameObject.FindObjectOfType<ItemGenerator>().GetComponent<ItemGenerator>().RestartLevelDifficulty();
+					GameObject.FindGameObjectWithTag("ScoreManager").GetComponent<ScoreManager>().ResetScore();
 					//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 					for (int i = 0; i < parallaxList.Count; i++)
 					{
