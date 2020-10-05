@@ -17,6 +17,7 @@ public class LineFollower : MonoBehaviour
 	[SerializeField] AudioClip rewindClip;
 
 	private List<RoundParallax> parallaxList;
+	private List<float> parallaxSpeedList;
 
 	float distanceTravelled;
 	float speed;
@@ -46,6 +47,11 @@ public class LineFollower : MonoBehaviour
 		parallaxList = GameObject.FindObjectsOfType<RoundParallax>().ToList();
 		initialSpeed = speed;
 		musicManager = Camera.main.GetComponent<MusicManager>();
+		parallaxSpeedList = new List<float>();
+		for (int i = 0; i < parallaxList.Count; i++)
+		{
+			parallaxSpeedList.Add(parallaxList[i].Speed);
+		}
 	}
 
 	// Update is called once per frame
@@ -84,8 +90,16 @@ public class LineFollower : MonoBehaviour
 						dState = DeathStates.LoadingScene;
 					break;
 				case DeathStates.LoadingScene:
-					
-					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+					musicManager.RestartSynchronization();
+					GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealth>().RestartCharacter();
+					GameObject.FindObjectOfType<ItemGenerator>().GetComponent<ItemGenerator>().RestartLevelDifficulty();
+					//SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+					for (int i = 0; i < parallaxList.Count; i++)
+					{
+						parallaxList[i].Speed = parallaxSpeedList[i];
+					}
+					deathSequence = false;
+					speed = initialSpeed;
 					break;
 			}
 		}
@@ -127,6 +141,8 @@ public class LineFollower : MonoBehaviour
 	public void StartDeathSequence()
 	{
 		deathSequence = true;
+		GameObject.FindObjectOfType<ItemGenerator>().GetComponent<ItemGenerator>().StopGeneration();
+		GameObject.FindObjectOfType<ObjectDestroyer>().GetComponent<ObjectDestroyer>().DestroyScene();
 		dState = DeathStates.Stopping;
 		timer = 0;
 	}

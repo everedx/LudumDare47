@@ -208,6 +208,14 @@ public class SpaceshipHandler : MonoBehaviour
 	{
 		characterEnabled = false;
 	}
+	public void RestartCharacter()
+	{
+		characterEnabled = true;
+		gunLevel = 0;
+		damageLevel = 1;
+		speedLevel = 0;
+		laserQuantity = 0;
+	}
 
 	public bool IsShootingLazer()
 	{
