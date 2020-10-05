@@ -56,7 +56,7 @@ public class SpaceshipHandler : MonoBehaviour
 		currentSpeed = MovementSpeed;
 		lazerMax = 3;
 		gunLevel = 0;
-		damageLevel = 1;
+		damageLevel = 0;
 		speedLevel = 0;
 		laserQuantity = 0;
 
@@ -162,7 +162,7 @@ public class SpaceshipHandler : MonoBehaviour
 
 
 				//Primary attack
-				_activeShooter.FromCurrentShootingState(Input.GetKeyDown(space) || Input.GetMouseButtonDown(0), Input.GetKeyUp(space) || Input.GetMouseButtonUp(0), Input.GetKey(space) || Input.GetMouseButton(0), gameObject, Time.deltaTime, gunLevel, 2f);
+				_activeShooter.FromCurrentShootingState(Input.GetKeyDown(space) || Input.GetMouseButtonDown(0), Input.GetKeyUp(space) || Input.GetMouseButtonUp(0), Input.GetKey(space) || Input.GetMouseButton(0), gameObject, Time.deltaTime, gunLevel, 2f, 1 + damageLevel * 0.5f);
 
 				//secondary attack
 				if ((Input.GetKeyDown(control) || Input.GetMouseButtonDown(1)) && laserQuantity > 0)
@@ -256,7 +256,7 @@ public class SpaceshipHandler : MonoBehaviour
 	}
 	public void AddDamagePowerUp()
 	{
-		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);
+		damageLevel = Mathf.Clamp(damageLevel + 1, 0, 3);
 		MessageManager.Instance.ShowDamage();
 		damageClip.Play();
 		UpdatePowerupUI();

@@ -17,13 +17,14 @@ public class RadialShooter : IShooter
 		parentOfBullet = parentObject;
 	}
 
-	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration)
+	public void FromCurrentShootingState(bool justPressed, bool justReleased, bool isPressed, GameObject spaceShip, float deltaTime, int level, float duration, float damageMultiplier = 1)
 	{
 		float eulerDif = 360f / numberOfBullets;
 		for (float i = 0; i < 360; i += eulerDif)
 		{
 			var go = Object.Instantiate(Prefab, spaceShip.transform.position, Quaternion.Euler(0,0,i), parentOfBullet.transform);
 			go.GetComponent<IBullet>().SetOwnerTag(spaceShip);
+			go.GetComponent<IBullet>().SetDamageMultiplier(damageMultiplier);
 			Object.Destroy(go, 7f);
 		}
 		
