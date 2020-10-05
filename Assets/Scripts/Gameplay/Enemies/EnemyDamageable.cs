@@ -9,8 +9,9 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     [SerializeField] float damageOnCollision = 1;
     [SerializeField] ParticleSystem psHit;
     [SerializeField] GameObject lootObject;
+	[SerializeField] int score;
 
-    protected float currentHealth;
+	protected float currentHealth;
     protected Rigidbody2D rigBody;
     protected BoxCollider2D boxCollider2D;
     protected SpriteRenderer sr;
@@ -60,7 +61,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
-				scoreManager.AddScore(GetScore());
+				scoreManager.AddScore(score);
 				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }
@@ -68,11 +69,6 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         }
 
     }
-
-	protected virtual int GetScore()
-	{
-		return 100;
-	}
 
 	protected virtual void OnZeroHealth()
 	{

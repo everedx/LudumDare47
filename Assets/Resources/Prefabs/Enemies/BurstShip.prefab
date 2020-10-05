@@ -103,6 +103,8 @@ MonoBehaviour:
   initialHealth: 5
   damageOnCollision: 1
   psHit: {fileID: 440344349312000470}
+  lootObject: {fileID: 0}
+  score: 100
   secondsToShoot: 2
   secondsToGoAfterShoot: 2
   timeToArriveAndScape: 3

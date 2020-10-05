@@ -5096,6 +5096,7 @@ MonoBehaviour:
   damageOnCollision: 0
   psHit: {fileID: 8471131684536211816}
   lootObject: {fileID: 8006397542618039955, guid: 42f6bce3441f0b644a809d3c8b387fe4, type: 3}
+  score: 5
   timeVulnerableInScreen: 5
   timeToArriveAndScape: 3
   movSpeedWandering: 8

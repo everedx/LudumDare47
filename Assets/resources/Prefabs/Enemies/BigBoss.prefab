@@ -235,6 +235,7 @@ MonoBehaviour:
   damageOnCollision: 1
   psHit: {fileID: 1404694851085340581}
   lootObject: {fileID: 0}
+  score: 2000
   slowMaxSpeed: 4
   fastMaxSpeed: 8
   machinegunFreq: 0.5
