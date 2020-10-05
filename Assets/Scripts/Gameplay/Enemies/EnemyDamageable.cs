@@ -8,7 +8,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     [SerializeField] protected float initialHealth = 3;
     [SerializeField] float damageOnCollision = 1;
     [SerializeField] ParticleSystem psHit;
-    [SerializeField] GameObject lootObject;
+    [SerializeField] protected GameObject lootObject;
 	[SerializeField] int score;
 
 	protected float currentHealth;
