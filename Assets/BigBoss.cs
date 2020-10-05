@@ -42,6 +42,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 	[SerializeField] int machinegunLevel;
 	[SerializeField] int shotgunLevel;
 	[SerializeField] int laserLevel;
+	[SerializeField] List<GameObject> possibleLoot;
 
 	private float lastMachinegunShot;
 
@@ -264,4 +265,16 @@ public class BigBoss : EnemyDamageable, ILevelable
 
 		currentHealth = initialHealth = level * 10;
 	}
+
+
+
+	protected override void OnZeroHealth()
+	{
+
+		Instantiate(possibleLoot[Random.Range(0, possibleLoot.Count)],transform.position,Quaternion.identity);
+
+		Destroy(gameObject);
+		
+	}
+
 }
