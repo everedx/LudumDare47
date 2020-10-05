@@ -8,11 +8,16 @@ public class StraightBullet : MonoBehaviour, IBullet
 	[SerializeField] float damage = 1.1f;
 	[SerializeField] float speed = 5f;
 
+	private const string ShotPath = "Audios/Sfx - Wall hit";
+	private static AudioClip shotClip = null;
+
 	private string ownerTag;
 	// Start is called before the first frame update
 	void Start()
 	{
-		
+		if(shotClip == null)
+			shotClip = Resources.Load(ShotPath, typeof(AudioClip)) as AudioClip;
+		AudioSource.PlayClipAtPoint(shotClip, transform.position);
 	}
 
 	void FixedUpdate()

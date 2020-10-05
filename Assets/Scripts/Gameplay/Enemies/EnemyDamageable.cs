@@ -11,6 +11,9 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     [SerializeField] protected GameObject lootObject;
 	[SerializeField] int score;
 
+	private const string ExplosionPath = "Audios/Sfx - Explosion 2";
+	private static AudioClip explosionClip;
+
 	protected float currentHealth;
     protected Rigidbody2D rigBody;
     protected BoxCollider2D boxCollider2D;
@@ -33,6 +36,9 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         sr.material = new Material(shaderObject);
         mat = sr.material;
 		scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
+
+		if(explosionClip == null)
+			explosionClip = Resources.Load(ExplosionPath, typeof(AudioClip)) as AudioClip;
     }
 
     // Update is called once per frame
@@ -61,6 +67,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
+				AudioSource.PlayClipAtPoint(explosionClip, transform.position);
 				scoreManager.AddScore(score);
 				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
