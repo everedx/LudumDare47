@@ -32,7 +32,6 @@ public class MessagePopup : MonoBehaviour
     {
 		if (goingUp)
 		{
-			Debug.Log("Going up");
 			image.position = new Vector2(image.position.x, image.position.y + speed * Time.deltaTime);
 			if (image.position.y > Camera.main.pixelHeight / 2)
 			{
@@ -42,7 +41,6 @@ public class MessagePopup : MonoBehaviour
 		}
 		if (bouncingDown)
 		{
-			Debug.Log("bouncing down");
 			speed -= aceleration * Time.deltaTime;
 			image.position = new Vector2(image.position.x, image.position.y + speed * Time.deltaTime);
 			if (image.position.y < Camera.main.pixelHeight / 2)
@@ -54,7 +52,6 @@ public class MessagePopup : MonoBehaviour
 		}
 		if (waiting)
 		{
-			Debug.Log("waiting");
 			if (Time.time - startedWaitingAt > timeToWait)
 			{
 				waiting = false;
@@ -65,7 +62,6 @@ public class MessagePopup : MonoBehaviour
 		}
 		if (goingDown)
 		{
-			Debug.Log("going down");
 			speed -= aceleration * Time.deltaTime;
 			image.position = new Vector2(image.position.x, image.position.y + speed * Time.deltaTime);
 		}
