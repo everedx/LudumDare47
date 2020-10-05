@@ -104,7 +104,8 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	public void AddShield(GameObject shieldPrefab, ShieldPowerup powerup)
 	{
         Destroy(_shield);
-        _shield = Instantiate(shieldPrefab, transform);
+		MessageManager.Instance.ShowShield();
+		_shield = Instantiate(shieldPrefab, transform);
 		currentShieldHealth = Mathf.Clamp(currentShieldHealth+ powerup.shieldHealth,0,maxShieldHealth);
 		shieldClip.Play();
 	}

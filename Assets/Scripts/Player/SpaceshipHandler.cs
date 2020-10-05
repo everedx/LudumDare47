@@ -236,30 +236,35 @@ public class SpaceshipHandler : MonoBehaviour
 	public void AddShotgunPowerUp()
 	{
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		MessageManager.Instance.ShowShotgun();
 		shotgunClip.Play();
 		ChangeActiveShooterTo(GetShooterOfType<ShotgunShooter>());
 	}
 	public void AddMoveSpeedPowerUp()
 	{
 		speedLevel = Mathf.Clamp(speedLevel + 1, 0, 3);
+		MessageManager.Instance.ShowSpeed();
 		speedClip.Play();
 		UpdatePowerupUI();
 	}
 	public void AddMachineGunPowerUp()
 	{
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		MessageManager.Instance.ShowMachinegun();
 		machinegunClip.Play();
 		ChangeActiveShooterTo(GetShooterOfType<MachineGunShooter>());
 	}
 	public void AddDamagePowerUp()
 	{
 		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);
+		MessageManager.Instance.ShowDamage();
 		damageClip.Play();
 		UpdatePowerupUI();
 	}
 	public void AddLazerPowerUp()
 	{
 		laserQuantity = Mathf.Clamp(laserQuantity + 1, 0, lazerMax);
+		MessageManager.Instance.ShowLaser();
 		laserClip.Play();
 		UpdatePowerupUI();
 	}
