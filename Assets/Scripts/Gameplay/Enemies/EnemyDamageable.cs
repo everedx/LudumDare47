@@ -18,6 +18,8 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
     protected GameObject playerObject;
     protected float initializationTime;
 
+	private ScoreManager scoreManager;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -29,7 +31,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         sr = GetComponent<SpriteRenderer>();
         sr.material = new Material(shaderObject);
         mat = sr.material;
-        
+		scoreManager = GameObject.FindWithTag("ScoreManager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame
@@ -58,6 +60,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
             Debug.Log("The Crawler " + gameObject.name + " received " + damage + " damage.");
             if (currentHealth == 0)
             {
+				scoreManager.AddScore(GetScore());
 				OnZeroHealth();
                 Debug.Log("The Enemy " + gameObject.name + " died.");
             }
@@ -65,6 +68,11 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
         }
 
     }
+
+	protected virtual int GetScore()
+	{
+		return 100;
+	}
 
 	protected virtual void OnZeroHealth()
 	{
