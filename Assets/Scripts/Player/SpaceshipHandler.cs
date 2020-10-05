@@ -181,8 +181,8 @@ public class SpaceshipHandler : MonoBehaviour
 
 	public void AddShotgunPowerUp()
 	{
+		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
 		ChangeActiveShooterTo(GetShooterOfType<ShotgunShooter>());
-		gunLevel = Mathf.Clamp(gunLevel+1,1,3);
 	}
 	public void AddMoveSpeedPowerUp()
 	{
@@ -190,8 +190,8 @@ public class SpaceshipHandler : MonoBehaviour
 	}
 	public void AddMachineGunPowerUp()
 	{
-		ChangeActiveShooterTo(GetShooterOfType<MachineGunShooter>());
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		ChangeActiveShooterTo(GetShooterOfType<MachineGunShooter>());
 	}
 	public void AddDamagePowerUp()
 	{
@@ -222,6 +222,7 @@ public class SpaceshipHandler : MonoBehaviour
 		damageLevel = Mathf.Clamp(damageLevel - 1, 1, 3);
 		speedLevel = Mathf.Clamp(speedLevel - 1, 0, 3);
 
+		ChangeActiveShooterTo(_activeShooter);
 	}
 
 	public void DisableCharacter()
