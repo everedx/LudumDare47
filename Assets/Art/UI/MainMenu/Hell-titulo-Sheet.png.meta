@@ -1,0 +1,682 @@
+fileFormatVersion: 2
+guid: d1f5a21c09f04524097c00a058b5a16f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1631685109403964111
+    second: Hell-titulo-Sheet_0
+  - first:
+      213: 2744199924361994783
+    second: Hell-titulo-Sheet_1
+  - first:
+      213: 8413156115847527447
+    second: Hell-titulo-Sheet_2
+  - first:
+      213: -6444205629168351884
+    second: Hell-titulo-Sheet_3
+  - first:
+      213: -6981905008219036419
+    second: Hell-titulo-Sheet_4
+  - first:
+      213: -7852631999923984356
+    second: Hell-titulo-Sheet_5
+  - first:
+      213: 6689451925475022445
+    second: Hell-titulo-Sheet_6
+  - first:
+      213: 5882121915294514344
+    second: Hell-titulo-Sheet_7
+  - first:
+      213: 2803402839146022626
+    second: Hell-titulo-Sheet_8
+  - first:
+      213: 8459323934004326256
+    second: Hell-titulo-Sheet_9
+  - first:
+      213: 7147069483653009477
+    second: Hell-titulo-Sheet_10
+  - first:
+      213: 123217684714353940
+    second: Hell-titulo-Sheet_11
+  - first:
+      213: 9110405216053556092
+    second: Hell-titulo-Sheet_12
+  - first:
+      213: 2108370427886443615
+    second: Hell-titulo-Sheet_13
+  - first:
+      213: -8779722107872275606
+    second: Hell-titulo-Sheet_14
+  - first:
+      213: -1185205942760327280
+    second: Hell-titulo-Sheet_15
+  - first:
+      213: 5681707013662099314
+    second: Hell-titulo-Sheet_16
+  - first:
+      213: -785572723359576984
+    second: Hell-titulo-Sheet_17
+  - first:
+      213: 8786158094386929024
+    second: Hell-titulo-Sheet_18
+  - first:
+      213: 6921039450525895502
+    second: Hell-titulo-Sheet_19
+  - first:
+      213: 6338767318747865498
+    second: Hell-titulo-Sheet_20
+  - first:
+      213: 4362856328649531177
+    second: Hell-titulo-Sheet_21
+  - first:
+      213: -929501516186624141
+    second: Hell-titulo-Sheet_22
+  - first:
+      213: 4417307798043241037
+    second: Hell-titulo-Sheet_23
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 248
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc2515346f8e4a610800000000000000
+      internalID: 1631685109403964111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 248
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f122044ba4b551620800000000000000
+      internalID: 2744199924361994783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 248
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71c3ffc99e881c470800000000000000
+      internalID: 8413156115847527447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 248
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47509d58f159196a0800000000000000
+      internalID: -6444205629168351884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 248
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df46591036a4b1f90800000000000000
+      internalID: -6981905008219036419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 186
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c186aa41dc8d50390800000000000000
+      internalID: -7852631999923984356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 186
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d66ddff7515b5dc50800000000000000
+      internalID: 6689451925475022445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 186
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ac7ba697be71a150800000000000000
+      internalID: 5882121915294514344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 186
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e6ce957700b7e620800000000000000
+      internalID: 2803402839146022626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 186
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07fa94e6c4e856570800000000000000
+      internalID: 8459323934004326256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 124
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5401c2e14dd7f2360800000000000000
+      internalID: 7147069483653009477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 124
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 415f177d4d1c5b100800000000000000
+      internalID: 123217684714353940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 124
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73fcb66649ae6e70800000000000000
+      internalID: 9110405216053556092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 124
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5c1c19cbbf624d10800000000000000
+      internalID: 2108370427886443615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 124
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6311a58249282680800000000000000
+      internalID: -8779722107872275606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 62
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 097b61c797d4d8fe0800000000000000
+      internalID: -1185205942760327280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 62
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277cc2b0d6a79de40800000000000000
+      internalID: 5681707013662099314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 62
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86c8aee25c51915f0800000000000000
+      internalID: -785572723359576984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 62
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08d1b5c5c34bee970800000000000000
+      internalID: 8786158094386929024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 62
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4b8f0506b87c0060800000000000000
+      internalID: 6921039450525895502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9162dbca43d7f750800000000000000
+      internalID: 6338767318747865498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f583b27bafb8c30800000000000000
+      internalID: 4362856328649531177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f5285bb4fb913f0800000000000000
+      internalID: -929501516186624141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hell-titulo-Sheet_23
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4a2ee5d90e6d4d30800000000000000
+      internalID: 4417307798043241037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cbfdb25fcaafb884d99d5f2685e43d8b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
