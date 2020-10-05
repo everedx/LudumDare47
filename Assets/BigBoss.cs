@@ -14,7 +14,8 @@ public class BigBoss : EnemyDamageable, ILevelable
 		TauntingU,
 		BoomBigLaser,
 		ShotgunCraze,
-		MachineTatata
+		MachineTatata,
+		GTFO
 	}
 
 	private Vector3 neutralPosition;
@@ -50,12 +51,14 @@ public class BigBoss : EnemyDamageable, ILevelable
 	private Transform left;
 	private Transform right;
 
+	private Transform transformParent;
+
 	// Start is called before the first frame update
 	void Start()
 	{
 		base.Start();
 		var player = GameObject.FindGameObjectWithTag("Player");
-		var transformParent = player.transform.parent;
+		transformParent = player.transform.parent;
 		transform.parent = transformParent;
 		transform.up = -transformParent.up;
 
@@ -109,6 +112,9 @@ public class BigBoss : EnemyDamageable, ILevelable
 				break;
 			case States.MachineTatata:
 				HandleMachineTatata();
+				break;
+			case States.GTFO:
+				HandleGTFO();
 				break;
 			default:
 				break;
@@ -222,6 +228,16 @@ public class BigBoss : EnemyDamageable, ILevelable
 		if (movingToPosition != null && MoveTowards(movingToPosition.Value, false)) movingToPosition = null;
 	}
 
+	private void HandleGTFO()
+	{
+		movingToPosition = new Vector3(
+			neutralPosition.x + Camera.main.pixelWidth,
+			neutralPosition.y,
+			0);
+
+		MoveTowards(movingToPosition.Value, false);
+	}
+
 	private void HandleEnteringTheMothafuckaScreen()
 	{
 		if (MoveTowards(neutralPosition, true))
@@ -260,24 +276,27 @@ public class BigBoss : EnemyDamageable, ILevelable
 	public void SetLevel(int level)
 	{
 		if(level <= 2) machinegunLevel = shotgunLevel = laserLevel = 1;
-		else if (level <= 6) machinegunLevel = shotgunLevel = laserLevel = 2;
+		else if (level <= 4) machinegunLevel = shotgunLevel = laserLevel = 2;
 		else machinegunLevel = shotgunLevel = laserLevel = 3;
 
-		currentHealth = initialHealth = level * 50;
+		currentHealth = initialHealth = level * 30;
 	}
-
-
 
 	protected override void OnZeroHealth()
 	{
-
 		Instantiate(possibleLoot[Random.Range(0, possibleLoot.Count)],transform.position,Quaternion.identity);
 		if (lootObject != null)
 		{
-			Instantiate(lootObject, transform.position, Quaternion.identity);
+			Instantiate(lootObject, transform.position, Quaternion.identity, transform.parent);
 		}
+
+		GameObject.FindGameObjectWithTag("ItemGenerator").GetComponent<ItemGenerator>().BossDied();
 		Destroy(gameObject);
-		
 	}
 
+	public void GoAway()
+	{
+		ChangeStateTo(States.GTFO);
+		Destroy(gameObject, 3f);
+	}
 }

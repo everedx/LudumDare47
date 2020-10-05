@@ -21,6 +21,9 @@ public class ShieldPowerup : MonoBehaviour, IInteractable
 	void Start()
     {
 		_shield = Resources.Load(ShieldPrefabPath, typeof(GameObject)) as GameObject;
+
+		// WHY TF DOES INSTANTIATE(...PARENT) NOT WORK
+		transform.parent = GameObject.FindGameObjectWithTag("Player").transform.parent;
 	}
 
     // Update is called once per frame

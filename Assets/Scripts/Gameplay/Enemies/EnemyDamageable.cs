@@ -81,7 +81,7 @@ public class EnemyDamageable : MonoBehaviour, IDamageable
 	{
 		if (lootObject != null)
 		{
-			Instantiate(lootObject, transform.position, Quaternion.identity);
+			Instantiate(lootObject, transform.position, Quaternion.identity, transform.parent);
 		}
 		Destroy(gameObject);
 	}

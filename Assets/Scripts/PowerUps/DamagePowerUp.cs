@@ -9,4 +9,10 @@ public class DamagePowerUp : MonoBehaviour, IInteractable
 		agent.GetComponent<SpaceshipHandler>().AddDamagePowerUp();
 		Destroy(gameObject);
 	}
+
+	void Start()
+	{
+		// WHY TF DOES INSTANTIATE(...PARENT) NOT WORK
+		transform.parent = GameObject.FindGameObjectWithTag("Player").transform.parent;
+	}
 }

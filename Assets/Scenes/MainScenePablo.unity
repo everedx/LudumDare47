@@ -6198,7 +6198,7 @@ GameObject:
   - component: {fileID: 1807094407}
   m_Layer: 0
   m_Name: ItemGenerator
-  m_TagString: Untagged
+  m_TagString: ItemGenerator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6215,18 +6215,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d0c80cdb9450641977a003768283e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Boss: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
   Items:
-  - chance: 1
-    item: {fileID: 1515961137483911257, guid: 1fa63c844063c774c956cc463c588717, type: 3}
-  - chance: 3
+  - chance: 0
+    item: {fileID: 8006397542618039955, guid: 17af3b92ee5d44040b897f02f6817017, type: 3}
+  - chance: 6
     item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
-  - chance: 3
+  - chance: 6
     item: {fileID: 3615132546889114885, guid: db3825756dfddaa40aebf764fe638139, type: 3}
-  - chance: 3
+  - chance: 6
     item: {fileID: 2959310872201168297, guid: cfb2470d2e4dd1a4a86ffc762b015d99, type: 3}
   - chance: 0
     item: {fileID: 2959310872201168297, guid: 2a014d48e8965d64ab2df5d20e8b57f0, type: 3}
-  - chance: 3
+  - chance: 6
     item: {fileID: 6716530225024996041, guid: e1e923daea5427548a2b25e07512103a, type: 3}
   - chance: 1
     item: {fileID: 8471131685404251799, guid: d7410e9872116ce4a9f87867a7800762, type: 3}
@@ -6240,8 +6241,6 @@ MonoBehaviour:
     item: {fileID: 8006397542618039955, guid: f5d1ab213de17fe4f8965e1a7faf5313, type: 3}
   - chance: 0
     item: {fileID: 8006397542618039955, guid: aa782aaf832dadd42b5e4891e3f7d4c5, type: 3}
-  - chance: 0
-    item: {fileID: 8006397542618039955, guid: 17af3b92ee5d44040b897f02f6817017, type: 3}
   timeToSpawnNewItem: 2
   initialLevel: 1
   finalLapNumberSize: 36
