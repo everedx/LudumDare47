@@ -1,21 +1,33 @@
 ﻿using PathCreation;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LineFollower : MonoBehaviour
 {
-	[SerializeField] PathCreator pathCreator;	
+	[SerializeField] PathCreator pathCreator;
 	[SerializeField] float secondsPerLap = 80;
+	[SerializeField] float rewindTime = 5f;
+	[SerializeField] float stoppingTime = 2f;
+	[SerializeField] AudioClip rewindClip;
 
-	private List<RoundParallax> parallaxList;	
+	private List<RoundParallax> parallaxList;
+
 	float distanceTravelled;
 	float speed;
 	bool deathSequence;
 	private DeathStates dState;
+	private float initialSpeed;
+	private float rewindSpeed;
+	float smoothRewindSpeed;
+	MusicManager musicManager;
+
+	private float timer;
 
 	private enum DeathStates
 	{
@@ -27,9 +39,13 @@ public class LineFollower : MonoBehaviour
 
 	private void Start()
 	{
+		smoothRewindSpeed = 0;
+		timer = 0;
 		deathSequence = false;
 		speed = pathCreator.path.length / secondsPerLap;
 		parallaxList = GameObject.FindObjectsOfType<RoundParallax>().ToList();
+		initialSpeed = speed;
+		musicManager = Camera.main.GetComponent<MusicManager>();
 	}
 
 	// Update is called once per frame
@@ -43,17 +59,32 @@ public class LineFollower : MonoBehaviour
 		}
 		else
 		{
+			timer += Time.deltaTime;
 			switch (dState)
 			{
 				case DeathStates.Stopping:
-					speed = Mathf.Lerp(speed,0,0.1f);
+					speed = Mathf.Lerp(speed,0, timer / stoppingTime);
+					musicManager.setVolume(Mathf.Lerp(musicManager.GetMusicVolume(), 0, timer / stoppingTime));
 					foreach(RoundParallax par in parallaxList)
-						par.Speed = Mathf.Lerp(par.Speed, 0, 1f * Time.deltaTime);
+						par.Speed = Mathf.Lerp(par.Speed, 0,timer/stoppingTime );
+					if (speed == 0)
+					{
+						dState = DeathStates.Rewinding;
+						rewindSpeed = distanceTravelled / rewindTime;
+						timer = 0;
+						musicManager.PlaySFX(rewindClip);
+				
+					}
 					break;
 				case DeathStates.Rewinding:
-					///speed = Mathf.Lerp(speed, 0, 0.1f);
+					
+					Rewind();
+					Debug.Log(distanceTravelled);
+					if (distanceTravelled >= 0)
+						dState = DeathStates.LoadingScene;
 					break;
 				case DeathStates.LoadingScene:
+					Debug.Log("Starting");
 					SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 					break;
 			}
@@ -72,11 +103,33 @@ public class LineFollower : MonoBehaviour
 		return secondsPerLap;
 	}
 
+	public void Rewind()
+	{
+		
+		if (timer < 0.5f)
+		{
+			smoothRewindSpeed = Mathf.SmoothStep(0,rewindSpeed, timer / 0.5f);
+		}
+
+		if (timer > rewindTime - 0.5f)
+		{
+			smoothRewindSpeed = Mathf.SmoothStep(rewindSpeed, 0 , timer - (rewindTime - 0.5f) / 0.5f);
+		}
+
+
+
+		distanceTravelled += -smoothRewindSpeed *  Time.deltaTime;
+		transform.position = pathCreator.path.GetPointAtDistance(distanceTravelled);
+		transform.up = -pathCreator.path.GetDirectionAtDistance(distanceTravelled);
+	}
+
 
 	public void StartDeathSequence()
 	{
 		deathSequence = true;
 		dState = DeathStates.Stopping;
+		timer = 0;
+		Debug.Log("Stopping");
 	}
 
 }

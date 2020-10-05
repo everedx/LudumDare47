@@ -73,7 +73,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
     public void Damage(float amount)
     {
-        if (invulnerabilityTimer < invulTimeAfterHit || ship.IsShootingLazer())
+        if (invulnerabilityTimer < invulTimeAfterHit || ship.IsShootingLazer() || currentHealth <= 0)
         {
             return;
         }

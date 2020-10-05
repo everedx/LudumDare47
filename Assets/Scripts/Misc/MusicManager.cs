@@ -8,6 +8,7 @@ public class MusicManager : MonoBehaviour
 
     [SerializeField] AudioSource source1;
     [SerializeField] AudioSource source2;
+    [SerializeField] AudioSource cameraSFXSource;
     [SerializeField] float durationInSeconds;
 
     int iterationIndex;
@@ -43,6 +44,20 @@ public class MusicManager : MonoBehaviour
 
     }
 
+    public void setVolume(float value)
+    {
+        activeSource.volume = value;
+    }
+
+    public float GetMusicVolume()
+    {
+       return  activeSource.volume;
+    }
+
+    public void PlaySFX(AudioClip clip)
+    {
+        cameraSFXSource.PlayOneShot(clip);
+    }
 
     public void PauseMusic()
     {
