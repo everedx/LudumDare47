@@ -14,6 +14,13 @@ public class SpaceshipHandler : MonoBehaviour
 	[SerializeField] Sprite gunImage;
 	[SerializeField] Sprite machinegunImage;
 	[SerializeField] Sprite shotgunImage;
+
+	[SerializeField] private AudioSource shotgunClip;
+	[SerializeField] private AudioSource machinegunClip;
+	[SerializeField] private AudioSource damageClip;
+	[SerializeField] private AudioSource speedClip;
+	[SerializeField] private AudioSource laserClip;
+
 	private UnityEngine.UI.Image _shooterDisplay;
 	private UnityEngine.UI.Image _shooterBackground;
 	private GameObject speedCanvas;
@@ -229,26 +236,31 @@ public class SpaceshipHandler : MonoBehaviour
 	public void AddShotgunPowerUp()
 	{
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		shotgunClip.Play();
 		ChangeActiveShooterTo(GetShooterOfType<ShotgunShooter>());
 	}
 	public void AddMoveSpeedPowerUp()
 	{
 		speedLevel = Mathf.Clamp(speedLevel + 1, 0, 3);
+		speedClip.Play();
 		UpdatePowerupUI();
 	}
 	public void AddMachineGunPowerUp()
 	{
 		gunLevel = Mathf.Clamp(gunLevel + 1, 1, 3);
+		machinegunClip.Play();
 		ChangeActiveShooterTo(GetShooterOfType<MachineGunShooter>());
 	}
 	public void AddDamagePowerUp()
 	{
 		damageLevel = Mathf.Clamp(damageLevel + 1, 1, 3);
+		damageClip.Play();
 		UpdatePowerupUI();
 	}
 	public void AddLazerPowerUp()
 	{
 		laserQuantity = Mathf.Clamp(laserQuantity + 1, 0, lazerMax);
+		laserClip.Play();
 		UpdatePowerupUI();
 	}
 

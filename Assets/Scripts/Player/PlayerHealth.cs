@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     [SerializeField] private float flickerDamageAmountEnd;
     [SerializeField] private float glitchDamageAmountEnd;
     [SerializeField] private float maxShieldHealth = 3f;
+	[SerializeField] private AudioSource shieldClip;
 
 	public GameObject HealthRing;
     public GameObject ShieldRing;
@@ -105,6 +106,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         Destroy(_shield);
         _shield = Instantiate(shieldPrefab, transform);
 		currentShieldHealth = Mathf.Clamp(currentShieldHealth+ powerup.shieldHealth,0,maxShieldHealth);
+		shieldClip.Play();
 	}
 
     public void RestartCharacter()

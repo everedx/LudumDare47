@@ -263,7 +263,7 @@ public class BigBoss : EnemyDamageable, ILevelable
 		else if (level <= 6) machinegunLevel = shotgunLevel = laserLevel = 2;
 		else machinegunLevel = shotgunLevel = laserLevel = 3;
 
-		currentHealth = initialHealth = level * 10;
+		currentHealth = initialHealth = level * 50;
 	}
 
 
