@@ -228,10 +228,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listOfPowerUps:
-  - image: {fileID: -976241534176805807, guid: d713b7cb75d8de94d88843aca04a565e, type: 3}
+  - image: {fileID: 2401985821872684368, guid: 63c2d54566f8c504b91f3f6dbc992d6f, type: 3}
     name: MachineGun
-  - image: {fileID: -3859694610713220655, guid: 0cfeeac2bceb78a4a928dc4f2a4ba18a, type: 3}
+  - image: {fileID: 897632798757636517, guid: 74ee6effdf2cf204a89c0121172dd7e5, type: 3}
     name: IMAFIRINGUPMAHLAZOR
-  - image: {fileID: -4924335201753877986, guid: 6d3cd42886dd34345920f30937340f0d, type: 3}
+  - image: {fileID: -8579448407134611116, guid: c8186843872c84e4ca5f1c25592dfe0b, type: 3}
     name: Shotgun
   timeToLoop: 0.5

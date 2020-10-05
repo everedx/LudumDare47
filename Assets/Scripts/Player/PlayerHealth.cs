@@ -24,7 +24,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
 	private float currentDisplayedHealth; // Not the actual health, only used to display smoothed health changes
 	private float currentShieldHealth;
 	private GameObject _shield;
-
+    private SpaceshipHandler ship;
 
 	// Start is called before the first frame update
 	void Start()
@@ -32,7 +32,7 @@ public class PlayerHealth : MonoBehaviour, IDamageable
         currentHealth = initialHealth;
         playerMaterial = GetComponent<SpriteRenderer>().material;
         invulnerabilityTimer = 50000;
-
+        ship = GetComponent<SpaceshipHandler>();
 		healthRing = HealthRing.GetComponent<Image>();
     }
 
@@ -68,7 +68,12 @@ public class PlayerHealth : MonoBehaviour, IDamageable
     }
     public void Damage(float amount)
     {
-		invulnerabilityTimer = 0;
+        if (invulnerabilityTimer < invulTimeAfterHit || ship.IsShootingLazer())
+        {
+            return;
+        }
+
+        invulnerabilityTimer = 0;
 
 		if (currentShieldHealth > 0)
 		{

@@ -41,6 +41,9 @@ TagManager:
   - name: Minimap
     uniqueID: 1034256753
     locked: 0
+  - name: Dark
+    uniqueID: 3949949493
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

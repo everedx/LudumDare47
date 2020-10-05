@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 10
+  lazerDuration: 3
 --- !u!212 &288852793
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1748,13 +1749,13 @@ SpriteShapeRenderer:
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
   m_Sprites:
-  - {fileID: 21300000, guid: aca222413b9b01f45baae65bf08bd9c2, type: 3}
-  - {fileID: 21300000, guid: aca222413b9b01f45baae65bf08bd9c2, type: 3}
-  - {fileID: 21300000, guid: aca222413b9b01f45baae65bf08bd9c2, type: 3}
-  - {fileID: 21300000, guid: fae2b3cc1f2ddd44eb8cfeb31c19c89d, type: 3}
+  - {fileID: 21300000, guid: 9dfacfb7fe13fcb44b79e9eb70dea09b, type: 3}
+  - {fileID: 21300000, guid: 9dfacfb7fe13fcb44b79e9eb70dea09b, type: 3}
+  - {fileID: 21300000, guid: 9dfacfb7fe13fcb44b79e9eb70dea09b, type: 3}
+  - {fileID: 21300000, guid: 9dfacfb7fe13fcb44b79e9eb70dea09b, type: 3}
   m_LocalAABB:
-    m_Center: {x: -3.2732391, y: 0.736557, z: -0.00005015}
-    m_Extent: {x: 146.22829, y: 146.20593, z: 0.00005015}
+    m_Center: {x: -3.2732544, y: 0.7365875, z: -0.00005015}
+    m_Extent: {x: 139.97827, y: 139.95596, z: 0.00005015}
 --- !u!4 &369182258
 Transform:
   m_ObjectHideFlags: 0
@@ -1764,7 +1765,7 @@ Transform:
   m_GameObject: {fileID: 369182255}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -19.5, y: 0, z: -0.2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.94, y: 0.94, z: 0.94}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 11
@@ -1923,7 +1924,7 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 0.05
   m_LightVolumeOpacity: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: 0000000035726feb
   m_LightCookieSprite: {fileID: 0}
   m_UseNormalMap: 0
   m_LightOrder: 0
@@ -2462,7 +2463,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -2491,7 +2492,7 @@ SpriteShapeRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1034256753
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: -10
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
@@ -3346,8 +3347,8 @@ SpriteShapeRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -345017803
+  m_SortingLayer: -1
   m_SortingOrder: -105
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
@@ -4045,7 +4046,7 @@ SpriteShapeRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -100
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_MaskInteraction: 0
   m_ShapeTexture: {fileID: 0}
@@ -4239,7 +4240,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1034256753
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b3ac1f8f86cb60b46b8514ad13ff2637, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4308,8 +4309,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -345017803
+  m_SortingLayer: -1
   m_SortingOrder: -104
   m_Sprite: {fileID: -3300380529649391046, guid: c2e0d2ebd7898ba42996dc40521266bf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -4548,13 +4549,13 @@ MonoBehaviour:
   Items:
   - chance: 1
     item: {fileID: 3615132546889114885, guid: db3825756dfddaa40aebf764fe638139, type: 3}
-  - chance: 5
+  - chance: 10
     item: {fileID: 3615132546889114885, guid: 3205d3536a0a94c4ea3b7689673a92fe, type: 3}
   - chance: 1
     item: {fileID: 8006397542618039955, guid: 17af3b92ee5d44040b897f02f6817017, type: 3}
   - chance: 1
     item: {fileID: 8006397542618039955, guid: f5d1ab213de17fe4f8965e1a7faf5313, type: 3}
-  - chance: 5
+  - chance: 1
     item: {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
   - chance: 1
     item: {fileID: 6716530225024996041, guid: e1e923daea5427548a2b25e07512103a, type: 3}
@@ -4563,9 +4564,11 @@ MonoBehaviour:
   - chance: 1
     item: {fileID: 2959310872201168297, guid: cfb2470d2e4dd1a4a86ffc762b015d99, type: 3}
   - chance: 1
-    item: {fileID: 5650533222466819914, guid: 1fa63c844063c774c956cc463c588717, type: 3}
+    item: {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
+  - chance: 10
+    item: {fileID: 8006397542618039955, guid: d499bf9e0571e9a45bbd3251136fca07, type: 3}
   timeToSpawnNewItem: 3
-  level: 1
+  level: 10
 --- !u!4 &1807094408
 Transform:
   m_ObjectHideFlags: 0

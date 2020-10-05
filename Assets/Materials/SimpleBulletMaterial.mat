@@ -106,7 +106,7 @@ Material:
     - _GhostTransparency: 0
     - _GlitchAmount: 0
     - _GlitchSize: 1
-    - _Glow: 1
+    - _Glow: 0.5
     - _GlowTexUsed: 0
     - _GradBlend: 1
     - _GrassManualAnim: 1

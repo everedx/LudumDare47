@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShotgunShooter : IShooter
 {
-	private const string BulletPrefabPath = "Prefabs/Bullets/SimpleBullet";
+	private const string BulletPrefabPath = "Prefabs/Bullets/ShotGunBullet";
 	private GameObject Prefab;
 	private GameObject parentObject;
 
