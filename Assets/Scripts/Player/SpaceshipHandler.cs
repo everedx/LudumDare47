@@ -83,8 +83,19 @@ public class SpaceshipHandler : MonoBehaviour
 
 
 
-		if (Input.GetKeyDown(escape) && Time.timeScale == 1) Time.timeScale = 0;
-		else if (Input.GetKeyDown(escape) && Time.timeScale == 0) Time.timeScale = 1;
+		if (Input.GetKeyDown(escape) && Time.timeScale == 1)
+		{
+			Time.timeScale = 0;
+			Camera.main.GetComponent<MusicManager>().PauseMusic();
+		}
+		else if (Input.GetKeyDown(escape) && Time.timeScale == 0)
+		{
+			Time.timeScale = 1;
+			Camera.main.GetComponent<MusicManager>().ResumeMusic();
+		} 
+
+
+
 
 		if (Input.GetKey(up) || Input.GetKey(wKey)) movementX = -1;
 		else if (Input.GetKey(down) || Input.GetKey(sKey)) movementX = 1;

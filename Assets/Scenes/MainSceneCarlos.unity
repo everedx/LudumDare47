@@ -4550,7 +4550,7 @@ MonoBehaviour:
   - chance: 1
     item: {fileID: 8006397542618039955, guid: b1516556322f07543aa41cc836eee406, type: 3}
   timeToSpawnNewItem: 3
-  level: 10
+  initialLevel: 1
 --- !u!4 &1807094408
 Transform:
   m_ObjectHideFlags: 0
@@ -4752,7 +4752,7 @@ GameObject:
   - component: {fileID: 2064260918}
   m_Layer: 0
   m_Name: spaceshipParent
-  m_TagString: Untagged
+  m_TagString: Follower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

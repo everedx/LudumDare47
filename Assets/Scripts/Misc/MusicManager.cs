@@ -30,7 +30,7 @@ public class MusicManager : MonoBehaviour
 
 
 
-        if (Math.Floor(Time.time / durationInSeconds) > iterationIndex)
+        if (Math.Floor(Time.timeSinceLevelLoad / durationInSeconds) > iterationIndex)
         {
             if (activeSource == source1)
                 activeSource = source2;
@@ -42,4 +42,18 @@ public class MusicManager : MonoBehaviour
         }
 
     }
+
+
+    public void PauseMusic()
+    {
+        source1.Pause();
+        source2.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        source1.UnPause();
+        source2.UnPause();
+    }
 }
+

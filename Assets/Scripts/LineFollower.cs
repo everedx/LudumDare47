@@ -33,4 +33,9 @@ public class LineFollower : MonoBehaviour
 		return transform.up;
 	}
 
+	public float GetSecondsPerLap()
+	{
+		return secondsPerLap;
+	}
+
 }
