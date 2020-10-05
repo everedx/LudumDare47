@@ -56,7 +56,7 @@ public class ItemGenerator : MonoBehaviour
 			var val = UnityEngine.Random.Range(1, chanceSum + 1);
 
 			Vector3 spawnPosition = new Vector3(Camera.main.transform.position.x, Camera.main.transform.position.y, 0);
-			spawnPosition = spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up * UnityEngine.Random.Range(-10, 1);
+			spawnPosition = spawnPosition + Camera.main.transform.right * 20 + Camera.main.transform.up * UnityEngine.Random.Range(-10, 10);
 
 			var newItem = GetObjectForVal(val);
 			var levelable = newItem.GetComponent<ILevelable>();
